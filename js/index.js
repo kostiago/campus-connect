@@ -1,0 +1,2 @@
+initHero();
+renderFeatured();

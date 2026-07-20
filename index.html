@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <span class="logo-icon" aria-hidden="true">🎓</span>
+            <span>Campus <span class="logo-highlight">Connect</span></span>
+        </div>
+        <nav class="main-nav" aria-label="Navegação principal">
+            <ul>
+                <li><a href="index.html" aria-current="page">Início</a></li>
+                <li><a href="pages/events.html">Eventos</a></li>
+                <li><a href="pages/about.html">Sobre</a></li>
+                <li><a href="pages/profile.html">Perfil</a></li>
+                <li><a href="pages/contact.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <div class="search-wrapper">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+
+                    <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.2" />
+
+                    <path
+                        d="M11 8C10.606 8 10.2159 8.0776 9.85195 8.22836C9.48797 8.37913 9.15726 8.6001 8.87868 8.87868C8.6001 9.15726 8.37913 9.48797 8.22836 9.85195C8.0776 10.2159 8 10.606 8 11"
+                        stroke="currentColor" opacity=".35" stroke-width="1.2" stroke-linecap="round" />
+
+                    <path d="M20 20L17 17" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+
+                </svg>
+
+                <input type="search" id="event-search" class="search-input"
+                    placeholder="Buscar eventos, workshops, palestras..." aria-label="Buscar eventos">
+            </div>
+
+            <button class="btn-login">
+                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="8" r="4" fill="currentColor" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M12 13C8.33033 13 5.32016 15.4204 5.02395 18.5004C4.99752 18.7753 5.22389 19 5.50003 19H18.5C18.7762 19.0025 18.9761 18.7753 18.9761 18.5004C18.6799 15.4204 15.6697 13 12 13Z"
+                        fill="currentColor" opacity="0.25" />
+                </svg>
+                Entrar
+            </button>
+            <button class="btn-account">
+                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+
+                    <path
+                        d="M8.5 3.5H5.5C4.39543 3.5 3.5 4.39543 3.5 5.5V18.5C3.5 19.6046 4.39543 20.5 5.5 20.5H18.5C19.6046 20.5 20.5 19.6046 20.5 18.5V5.5C20.5 4.39543 19.6046 3.5 18.5 3.5H11.5"
+                        stroke="currentColor" stroke-linecap="round" />
+
+                    <path d="M12 8V16" stroke="currentColor" stroke-linecap="round" />
+
+                    <path d="M16 12H8" stroke="currentColor" stroke-linecap="round" />
+
+                </svg>
+                Criar Conta
+            </button>
+        </div>
+
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">
+                    <span class="dot" aria-hidden="true"></span>
+                    120+ eventos essa semana
+                </span>
+
+                <h1>Conectando <strong><span id="word">estudantes</span></strong> a oportunidades </h1>
+
+                <p class="hero-subtitle"> Descubra eventos, workshops e palestras nas sua universidade.
+                    Faça parte da comunidade acadêmica e amplie sua rede de contatos
+                </p>
+
+                <div class="cta-group">
+                    <button class="btn-primary" id="explore-events-btn"> Explorar Eventos
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" aria-hidden="true">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                    </button>
+
+                    <a href="pages/events.html" class="btn-link">
+                        Saiba mais
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="hero-highlights">
+                    <div class="stats-bar">
+                        <h2 class="hero-highlights-title"> Beneficios de participar do evento</h2>
+
+                        <div class="stats-bar-grid">
+                            <div class="stats-bar-item">
+                                <span class="stats-bar-icon icon-blue" aria-label="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                                        <path d="M16 2v4M8 2v4M3 10h18" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <p class="stats-bar-number">320+</p>
+                                    <p class="stats-bar-label">Eventos publicados</p>
+                                </div>
+                            </div>
+                            <div class="stats-bar-item">
+                                <span class="stats-bar-icon icon-green" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="7" cy="8" r="3" />
+                                        <circle cx="17" cy="8" r="3" />
+                                        <path d="M2 21v-1a5 5 0 0 1 5-5h0M22 21v-1a5 5 0 0 0-5-5h0" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <p class="stats-bar-number">8.400+</p>
+                                    <p class="stats-bar-label">Estudantes conectados</p>
+                                </div>
+                            </div>
+
+                            <div class="stats-bar-item">
+                                <span class="stats-bar-icon icon-purple" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M20.6 12.3L12.3 3.9a2 2 0 0 0-1.4-.6H5a2 2 0 0 0-2 2v5.9c0 .5.2 1 .6 1.4l8.4 8.4a2 2 0 0 0 2.8 0l5.8-5.8a2 2 0 0 0 0-2.9z" />
+                                        <circle cx="8" cy="8.5" r="1.5" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <p class="stats-bar-number">45</p>
+                                    <p class="stats-bar-label">Categorias</p>
+                                </div>
+                            </div>
+
+                            <div class="stats-bar-item">
+                                <span class="stats-bar-icon icon-amber" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="9" />
+                                        <path d="M9 12l2 2 4-4" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <p class="stats-bar-number">100%</p>
+                                    <p class="stats-bar-label">Gratuito</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="illustration-wrapper">
+                <img src="img/hero-image.png" alt="Estudantes em um campus" class="hero-image">
+                <a href="pages/events.html" class="event-card-link">
+                    <div class="event-card">
+                        <div class="event-card-icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" />
+                                <path d="M16 2v4M8 2v4M3 10h18" />
+                            </svg>
+                        </div>
+
+                        <div class="event-card-info">
+                            <p class="title">INOVAIF – Semana Tecnológica do IFPB Campus Soledade – 9ª Edição</p>
+                            <p class="meta">23 a 25 out · Bloco de Engenharia</p>
+                        </div>
+                        <span class="event-card-badge">Aberto</span>
+                    </div>
+                </a>
+            </div>
+
+        </section>
+
+        <section class="diagonal-section">
+            <div class="featured-section">
+                <div class="featured-header">
+                    <h2><span>Apenas o melhor para o melhor</span></h2>
+                    <p>Encontre os melhores <strong>eventos</strong> para participar.</p>
+                </div>
+
+                <div class="featured-carousel-wrapper">
+                    <button class="carousel-arrow prev" id="carousel-prev" aria-label="Evento anterior">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none">
+
+                            <ellipse
+                                cx="8"
+                                cy="8"
+                                rx="8"
+                                ry="8"
+                                transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 22 20)"
+                                fill="currentColor"
+                                opacity=".15" />
+
+                            <path
+                                d="M22.2998 12C22.2998 7.41604 18.584 3.7002 14 3.70019C9.41604 3.70019 5.7002 7.41604 5.7002 12C5.7002 16.584 9.41604 20.2998 14 20.2998C18.584 20.2998 22.2998 16.584 22.2998 12Z"
+                                stroke="currentColor"
+                                opacity=".20"
+                                stroke-width=".8" />
+
+                            <path
+                                d="M4.92893 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8079C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C22 10.0222 21.4135 8.08879 20.3147 6.4443C19.2159 4.79981 17.6541 3.51808 15.8268 2.76121C13.9996 2.00433 11.9889 1.8063 10.0491 2.19215C8.10929 2.578 6.32746 3.53041 4.92893 4.92893"
+                                stroke="currentColor"
+                                stroke-width="1.4" />
+
+                            <path
+                                d="M15 12L15.4685 11.6252L15.7684 12L15.4685 12.3748L15 12ZM3 12.6C2.66863 12.6 2.4 12.3314 2.4 12C2.4 11.6686 2.66863 11.4 3 11.4V12.6ZM11.4685 6.62518L15.4685 11.6252L14.5315 12.3748L10.5315 7.37482L11.4685 6.62518ZM15.4685 12.3748L11.4685 17.3748L10.5315 16.6252L14.5315 11.6252L15.4685 12.3748ZM15 12.6H3V11.4H15V12.6Z"
+                                fill="currentColor" />
+
+                        </svg>
+                    </button>
+
+                    <div class="featured-track" id="featured-track">
+
+                        <!-- Card 01 -->
+                        <a href="#" class="featured-card-link">
+                            <article class="featured-card">
+                                <div class="featured-top-row">
+                                    <span class="featured-rank">01</span>
+                                    <span class="featured-social">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13">
+                                            <path
+                                                d="M6 3h12v2h3v2a4 4 0 0 1-4 4h-.35A6 6 0 0 1 13 14.9V17h3v2H8v-2h3v-2.1A6 6 0 0 1 7.35 11H7a4 4 0 0 1-4-4V5h3V3zm-2 4a2 2 0 0 0 2 2V5H4v2zm16-2h-2v4a2 2 0 0 0 2-2V5z" />
+                                        </svg>
+                                        Inscrito por mais de <strong>1,2 mil </strong> nos últimos 30 dias
+                                    </span>
+                                </div>
+
+                                <div class="featured-body">
+
+                                    <div class="featured-content-left">
+
+                                        <p class="featured-category">Tecnologia</p>
+                                        <h3 class="featured-title">Hackathon UFMG 2025</h3>
+                                        <div class="featured-rating">
+                                            <span class="stars">
+                                                <svg viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.8 4.4 18l1.4-6.2L1 7.5l6.4-.6z" />
+                                                </svg>
+                                                <svg viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.8 4.4 18l1.4-6.2L1 7.5l6.4-.6z" />
+                                                </svg>
+                                                <svg viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.8 4.4 18l1.4-6.2L1 7.5l6.4-.6z" />
+                                                </svg>
+                                                <svg viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.8 4.4 18l1.4-6.2L1 7.5l6.4-.6z" />
+                                                </svg>
+                                                <svg viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.8 4.4 18l1.4-6.2L1 7.5l6.4-.6z" />
+                                                </svg>
+                                            </span>
+                                            291 avaliações
+                                        </div>
+                                        <span class="featured-tag">Novo evento</span>
+
+                                    </div>
+                                    <div class="featured-content-right">
+                                        <div class="featured-image-wrapper">
+                                            <img src="img/banner-campus-2.jpg" alt="teste" class="featured-image">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="featured-bottom">
+                                    <p class="featured-description">
+                                        48 horas de desenvolvimento em equipe para resolver desafios reais propostos por
+                                        departamentos da universidade.
+                                    </p>
+
+                                    <div class="featured-footer">
+                                        <button class="btn-featured-cta">
+                                            Saiba-mais
+                                            <svg
+                                                class="btn-icon"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="none">
+
+                                                <path
+                                                    d="M16.2111 11.1056L9.73666 7.86833C8.93878 7.46939 8 8.04958 8 8.94164V15.0584C8 15.9504 8.93878 16.5306 9.73666 16.1317L16.2111 12.8944C16.9482 12.5259 16.9482 11.4741 16.2111 11.1056Z"
+                                                    stroke="currentColor"
+                                                    stroke-width="2"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="featured-meta">
+                                    <div class="featured-meta-row">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" />
+                                            <path d="M16 2v4M8 2v4M3 10h18" />
+                                        </svg>
+                                        23 jul
+                                    </div>
+                                    <div class="featured-meta-row">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z" />
+                                            <circle cx="12" cy="10" r="2.5" />
+                                        </svg>
+                                        <span>Bloco de Engenharia</span>
+                                    </div>
+
+                                    <div class="featured-meta-row">
+                                        <!-- usuários -->
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
+
+                                            <circle cx="9" cy="7" r="4" />
+
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+
+                                        </svg>
+
+                                        <span>250 vagas disponíveis</span>
+
+                                    </div>
+                                </div>
+
+                            </article>
+                        </a>
+
+                        <!-- Card 02 -->
+                         <a href="#" class="featured-card-link">
+                            <article class="featured-card">
+                                <div class="featured-top-row">
+                                    <span class="featured-rank">02</span>
+                                    <span class="featured-social">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13">
+                                            <path
+                                                d="M6 3h12v2h3v2a4 4 0 0 1-4 4h-.35A6 6 0 0 1 13 14.9V17h3v2H8v-2h3v-2.1A6 6 0 0 1 7.35 11H7a4 4 0 0 1-4-4V5h3V3zm-2 4a2 2 0 0 0 2 2V5H4v2zm16-2h-2v4a2 2 0 0 0 2-2V5z" />
+                                        </svg>
+                                        Inscrito por mais de <strong>980 </strong> nos últimos 30 dias
+                                    </span>
+                                </div>
+
+                                <div class="featured-body">
+
+                                    <div class="featured-content-left">
+
+                                        <p class="featured-category">Pesquisa</p>
+                                        <h3 class="featured-title">Semana de Iniciação Científica</h3>
+                                        <div class="featured-rating">
+                                            <span class="stars">
+                                                <svg viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.8 4.4 18l1.4-6.2L1 7.5l6.4-.6z" />
+                                                </svg>
+                                                <svg viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.8 4.4 18l1.4-6.2L1 7.5l6.4-.6z" />
+                                                </svg>
+                                                <svg viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.8 4.4 18l1.4-6.2L1 7.5l6.4-.6z" />
+                                                </svg>
+                                                <svg viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.8 4.4 18l1.4-6.2L1 7.5l6.4-.6z" />
+                                                </svg>
+                                                <svg viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.8 4.4 18l1.4-6.2L1 7.5l6.4-.6z" />
+                                                </svg>
+                                            </span>
+                                            164 avaliações
+                                        </div>
+                                        
+
+                                    </div>
+                                    <div class="featured-content-right">
+                                        <div class="featured-image-wrapper">
+                                            <img src="img/banner-campus-2.jpg" alt="teste" class="featured-image">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="featured-bottom">
+                                    <p class="featured-description">
+                                        Apresentação de projetos de pesquisa de alunos de graduação e pós-graduação, com sessões
+                                        de pôsteres e comunicações orais.
+                                    </p>
+
+                                    <div class="featured-footer">
+                                        <button class="btn-featured-cta">
+                                            Saiba-mais
+                                            <svg
+                                                class="btn-icon"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="none">
+
+                                                <path
+                                                    d="M16.2111 11.1056L9.73666 7.86833C8.93878 7.46939 8 8.04958 8 8.94164V15.0584C8 15.9504 8.93878 16.5306 9.73666 16.1317L16.2111 12.8944C16.9482 12.5259 16.9482 11.4741 16.2111 11.1056Z"
+                                                    stroke="currentColor"
+                                                    stroke-width="2"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="featured-meta">
+                                    <div class="featured-meta-row">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" />
+                                            <path d="M16 2v4M8 2v4M3 10h18" />
+                                        </svg>
+                                        23 jul
+                                    </div>
+                                    <div class="featured-meta-row">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z" />
+                                            <circle cx="12" cy="10" r="2.5" />
+                                        </svg>
+                                        <span>Auditório Central</span>
+                                    </div>
+
+                                    <div class="featured-meta-row">
+                                        <!-- usuários -->
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
+
+                                            <circle cx="9" cy="7" r="4" />
+
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+
+                                        </svg>
+
+                                        <span>120 vagas disponíveis</span>
+
+                                    </div>
+                                </div>
+
+                            </article>
+                        </a>
+                        
+
+                        <!-- Card 03 -->
+                        <a href="#" class="featured-card-link">
+                            <article class="featured-card">
+                                <div class="featured-top-row">
+                                    <span class="featured-rank">03</span>
+                                    <span class="featured-social">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13">
+                                            <path
+                                                d="M6 3h12v2h3v2a4 4 0 0 1-4 4h-.35A6 6 0 0 1 13 14.9V17h3v2H8v-2h3v-2.1A6 6 0 0 1 7.35 11H7a4 4 0 0 1-4-4V5h3V3zm-2 4a2 2 0 0 0 2 2V5H4v2zm16-2h-2v4a2 2 0 0 0 2-2V5z" />
+                                        </svg>
+                                        Inscrito por mais de <strong>1,4 mil </strong> nos últimos 30 dias
+                                    </span>
+                                </div>
+
+                                <div class="featured-body">
+
+                                    <div class="featured-content-left">
+
+                                        <p class="featured-category">Design</p>
+                                        <h3 class="featured-title">Workshop de Design Thinking</h3>
+                                        <div class="featured-rating">
+                                            <span class="stars">
+                                                <svg viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.8 4.4 18l1.4-6.2L1 7.5l6.4-.6z" />
+                                                </svg>
+                                                <svg viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.8 4.4 18l1.4-6.2L1 7.5l6.4-.6z" />
+                                                </svg>
+                                                <svg viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.8 4.4 18l1.4-6.2L1 7.5l6.4-.6z" />
+                                                </svg>
+                                                <svg viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.8 4.4 18l1.4-6.2L1 7.5l6.4-.6z" />
+                                                </svg>
+                                                <svg viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.8 4.4 18l1.4-6.2L1 7.5l6.4-.6z" />
+                                                </svg>
+                                            </span>
+                                            164 avaliações
+                                        </div>
+                                        <span class="featured-tag">Novo evento</span>
+
+                                    </div>
+                                    <div class="featured-content-right">
+                                        <div class="featured-image-wrapper">
+                                            <img src="img/banner-campus-2.jpg" alt="teste" class="featured-image">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="featured-bottom">
+                                    <p class="featured-description">
+                                        Prática de metodologias de design centrado no usuário aplicadas a projetos reais de
+                                        extensão universitária, com dinâmicas em grupo.
+                                    </p>
+
+                                    <div class="featured-footer">
+                                        <button class="btn-featured-cta">
+                                            Saiba-mais
+                                            <svg
+                                                class="btn-icon"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="none">
+
+                                                <path
+                                                    d="M16.2111 11.1056L9.73666 7.86833C8.93878 7.46939 8 8.04958 8 8.94164V15.0584C8 15.9504 8.93878 16.5306 9.73666 16.1317L16.2111 12.8944C16.9482 12.5259 16.9482 11.4741 16.2111 11.1056Z"
+                                                    stroke="currentColor"
+                                                    stroke-width="2"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="featured-meta">
+                                    <div class="featured-meta-row">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" />
+                                            <path d="M16 2v4M8 2v4M3 10h18" />
+                                        </svg>
+                                        23 jul
+                                    </div>
+                                    <div class="featured-meta-row">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z" />
+                                            <circle cx="12" cy="10" r="2.5" />
+                                        </svg>
+                                        <span>Laboratório de Inovação</span>
+                                    </div>
+
+                                    <div class="featured-meta-row">
+                                        <!-- usuários -->
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
+
+                                            <circle cx="9" cy="7" r="4" />
+
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+
+                                        </svg>
+
+                                        <span>60 vagas disponíveis</span>
+
+                                    </div>
+                                </div>
+
+                            </article>
+                        </a>
+                        <!-- Card 04 -->
+                         
+            
+                    </div>
+
+                    <button class="carousel-arrow next" id="carousel-next" aria-label="Próximo evento">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none">
+
+                            <ellipse
+                                cx="8"
+                                cy="8"
+                                rx="8"
+                                ry="8"
+                                transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 22 20)"
+                                fill="currentColor"
+                                opacity=".15" />
+
+                            <path
+                                d="M22.2998 12C22.2998 7.41604 18.584 3.7002 14 3.70019C9.41604 3.70019 5.7002 7.41604 5.7002 12C5.7002 16.584 9.41604 20.2998 14 20.2998C18.584 20.2998 22.2998 16.584 22.2998 12Z"
+                                stroke="currentColor"
+                                opacity=".20"
+                                stroke-width=".8" />
+
+                            <path
+                                d="M4.92893 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8079C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C22 10.0222 21.4135 8.08879 20.3147 6.4443C19.2159 4.79981 17.6541 3.51808 15.8268 2.76121C13.9996 2.00433 11.9889 1.8063 10.0491 2.19215C8.10929 2.578 6.32746 3.53041 4.92893 4.92893"
+                                stroke="currentColor"
+                                stroke-width="1.4" />
+
+                            <path
+                                d="M15 12L15.4685 11.6252L15.7684 12L15.4685 12.3748L15 12ZM3 12.6C2.66863 12.6 2.4 12.3314 2.4 12C2.4 11.6686 2.66863 11.4 3 11.4V12.6ZM11.4685 6.62518L15.4685 11.6252L14.5315 12.3748L10.5315 7.37482L11.4685 6.62518ZM15.4685 12.3748L11.4685 17.3748L10.5315 16.6252L14.5315 11.6252L15.4685 12.3748ZM15 12.6H3V11.4H15V12.6Z"
+                                fill="currentColor" />
+
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Um dot por card acima. A classe "active" começa no primeiro. -->
+                <div class="carousel-dots" id="carousel-dots">
+                    
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <script src="js/components/hero-section.js"></script>
+    <script src="js/components/featured-section.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
