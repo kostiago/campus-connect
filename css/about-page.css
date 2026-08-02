@@ -1,0 +1,223 @@
+/*
+  Página Sobre (pages/about.html)
+  Depende do design system global (:root) do site.
+*/
+
+.about-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-lg) 24px var(--space-xl);
+}
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.breadcrumb a {
+  color: var(--color-text-muted);
+  transition: color 150ms ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--color-primary);
+}
+
+.breadcrumb [aria-current="page"] {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.breadcrumb-separator {
+  color: var(--color-border);
+}
+
+/* ---------- Visão geral ---------- */
+.about-overview {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.section-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-primary);
+  margin: 0 0 10px;
+}
+
+.about-overview-left h1 {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 0 0 16px;
+}
+
+.about-overview-left p {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.about-overview-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.about-meta-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.about-meta-value {
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+/* ---------- Bloco narrativo (fundo neutro) ---------- */
+.about-narrative {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.about-narrative-block h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.about-narrative-block p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin: 0 0 14px;
+}
+
+.about-narrative-block p:last-child {
+  margin-bottom: 0;
+}
+
+.about-image-placeholder {
+  aspect-ratio: 16 / 9;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+}
+
+.about-image-placeholder svg {
+  width: 48px;
+  height: 48px;
+}
+
+.about-features-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-features-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.feature-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-blue   { background: var(--color-primary); }
+.dot-green  { background: var(--color-success); }
+.dot-purple { background: var(--color-purple); }
+.dot-amber  { background: var(--color-amber); }
+
+/* ---------- Fechamento / CTA ---------- */
+.about-closing {
+  text-align: center;
+  margin-top: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.about-closing h2 {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.about-closing p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin: 0 0 8px;
+}
+
+.about-cta-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-success);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.about-cta-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.about-cta-btn:hover {
+  background: #15803d;
+  transform: translateX(3px);
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 700px) {
+  .about-overview {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .about-narrative {
+    padding: var(--space-lg);
+  }
+}

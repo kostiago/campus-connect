@@ -1,0 +1,373 @@
+/*
+  Página de Eventos (pages/events.html)
+  Depende do design system global (:root) do site.
+*/
+
+.events-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-xl) 24px;
+}
+
+/* ---------- Cabeçalho ---------- */
+.events-page-header {
+  margin-bottom: var(--space-lg);
+}
+
+.events-page-header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.events-page-header p {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ---------- Barra de categorias (tabs) ---------- */
+.events-tabs-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  background: var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 6px;
+  margin-bottom: var(--space-lg);
+}
+
+.events-tab {
+  flex: 1;
+  min-width: fit-content;
+  background: none;
+  border: none;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease, box-shadow 150ms ease;
+}
+
+.events-tab:hover {
+  color: var(--color-text);
+}
+
+.events-tab.active {
+  background: var(--color-success);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.3);
+}
+
+/* ---------- Corpo: sidebar + grid ---------- */
+.events-page-body {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+/* ---------- Sidebar ---------- */
+.events-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: sticky;
+  top: 90px; /* abaixo do header sticky */
+}
+
+.sidebar-filter-block {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.sidebar-filter-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+
+.sidebar-filter-title svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.sidebar-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  padding: 6px 0;
+  cursor: not-allowed; /* funcionalidade ainda não implementada */
+}
+
+.sidebar-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary);
+  cursor: not-allowed;
+}
+
+.sidebar-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  font-size: 14px;
+  cursor: not-allowed;
+}
+
+.sidebar-note {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ---------- Grid de eventos ---------- */
+.events-page-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  align-content: start;
+}
+
+.event-page-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 150ms ease, transform 150ms ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-page-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.event-page-image {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+
+.event-page-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.event-page-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.badge-academico { background: var(--color-primary-bg); color: var(--color-primary); }
+.badge-esportes  { background: var(--color-success-bg); color: var(--color-success); }
+.badge-cultural  { background: var(--color-purple-bg);  color: var(--color-purple); }
+.badge-carreira  { background: var(--color-amber-bg);   color: var(--color-amber); }
+.badge-social    { background: var(--color-primary-bg); color: var(--color-primary); }
+
+.event-page-body {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.event-page-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.event-page-desc {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.event-page-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 4px 0 8px;
+}
+
+.event-page-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.event-page-meta-row svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+.btn-register {
+  margin-top: auto;
+  width: 100%;
+  background: var(--color-success);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.btn-register:hover {
+  background: #15803d;
+}
+
+.events-page-empty {
+  display: none;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 64px 24px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+/* ---------- Paginação ---------- */
+.pagination-bar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.pagination-spacer {
+  /* mantém a coluna da esquerda vazia, só para equilibrar visualmente
+     o peso do "Resultados por página" à direita — assim o bloco
+     central (nav + resumo) fica centralizado na barra inteira */
+}
+
+.pagination-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.pagination-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 38px;
+  height: 38px;
+  padding: 0 10px;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.pagination-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.pagination-btn:hover:not(.active):not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.pagination-btn.active {
+  background: var(--color-text);
+  border-color: var(--color-text);
+  color: #fff;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination-nav-btn {
+  font-weight: 600;
+}
+
+.pagination-ellipsis {
+  padding: 0 4px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.results-per-page {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  justify-self: end;
+}
+
+.results-per-page select {
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.pagination-summary {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  text-align: center;
+}

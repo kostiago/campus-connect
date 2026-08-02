@@ -1,0 +1,311 @@
+/*
+  Página de Contato (pages/contact.html)
+  Depende do design system global (:root) do site.
+*/
+
+.contact-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-xl) 24px;
+}
+
+/* ---------- Cabeçalho ---------- */
+.contact-page-header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.contact-page-header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 0 0 10px;
+}
+
+.contact-page-header p {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ---------- Card principal (painel + form) ---------- */
+.contact-card {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* ---------- Painel escuro de informações ---------- */
+.contact-info-panel {
+  position: relative;
+  background: var(--color-secondary-hover);
+  color: #fff;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  min-height: 520px;
+}
+
+.contact-info-content h2 {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 10px;
+}
+
+.contact-info-content > p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 40px;
+  max-width: 26ch;
+}
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.contact-info-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-info-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* Formas decorativas — usando a paleta principal, sem cores fora do sistema */
+.contact-decor {
+  position: absolute;
+  right: -40px;
+  bottom: -40px;
+  width: 220px;
+  height: 220px;
+  pointer-events: none;
+}
+
+.contact-decor::before,
+.contact-decor::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.contact-decor::before {
+  width: 180px;
+  height: 180px;
+  background: var(--color-primary);
+  opacity: 0.25;
+  right: 20px;
+  bottom: 10px;
+}
+
+.contact-decor::after {
+  width: 120px;
+  height: 120px;
+  background: var(--color-purple);
+  opacity: 0.2;
+  right: 90px;
+  bottom: 60px;
+}
+
+.contact-social-icons {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 10px;
+  margin-top: var(--space-lg);
+}
+
+.contact-social-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.contact-social-circle svg {
+  width: 16px;
+  height: 16px;
+}
+
+.contact-social-circle:hover {
+  background: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* ---------- Formulário ---------- */
+.contact-form {
+  padding: var(--space-lg) 40px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.form-group label,
+.subject-group legend {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.form-group input,
+.form-group textarea {
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  padding: 8px 2px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--color-text);
+  background: none;
+  transition: border-color 150ms ease;
+  resize: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #cbd5e1;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+/* ---------- Seleção de assunto (radio customizado) ---------- */
+.subject-group {
+  margin-top: 4px;
+}
+
+.subject-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 4px;
+}
+
+.subject-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.subject-radio input[type="radio"] {
+  display: none;
+}
+
+.radio-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 150ms ease;
+  flex-shrink: 0;
+}
+
+.radio-dot::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  transform: scale(0);
+  transition: transform 150ms ease;
+}
+
+.subject-radio input:checked + .radio-dot {
+  border-color: var(--color-primary);
+}
+
+.subject-radio input:checked + .radio-dot::after {
+  transform: scale(1);
+}
+
+/* ---------- Rodapé do formulário ---------- */
+.form-footer {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+  gap: 20px;
+}
+
+.btn-send {
+  background: var(--color-success);
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.btn-send:hover {
+  background: #15803d;
+  transform: translateY(-1px);
+}
+
+.paper-plane-decor {
+  width: 90px;
+  height: auto;
+  margin-left: 16px;
+  opacity: 0.8;
+}
+
+.form-feedback {
+  font-size: 13px;
+  min-height: 18px;
+  margin: 0;
+}
+
+.form-feedback.success { color: var(--color-success); }
+.form-feedback.error { color: var(--color-danger); }
+
