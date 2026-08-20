@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    <header class="site-header">
+    
+    <header class="site-header" >
         <div class="logo">
             <span class="logo-icon" aria-hidden="true">🎓</span>
             <span>Campus <span class="logo-highlight">Connect</span></span>
@@ -39,7 +40,7 @@
 
                 </svg>
 
-                <input type="search" id="event-search" class="search-input"
+                <input type="search" id="search" class="search-input"
                     placeholder="Buscar eventos, workshops, palestras..." aria-label="Buscar eventos">
             </div>
 
@@ -51,11 +52,12 @@
                         fill="currentColor" opacity="0.25" />
                 </svg>
                 Entrar
-            
-          </a>
+
+            </a>
             <a class="btn btn-primary">
                 <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-                    <path d="M8.5 3.5H5.5C4.39543 3.5 3.5 4.39543 3.5 5.5V18.5C3.5 19.6046 4.39543 20.5 5.5 20.5H18.5C19.6046 20.5 20.5 19.6046 20.5 18.5V5.5C20.5 4.39543 19.6046 3.5 18.5 3.5H11.5"
+                    <path
+                        d="M8.5 3.5H5.5C4.39543 3.5 3.5 4.39543 3.5 5.5V18.5C3.5 19.6046 4.39543 20.5 5.5 20.5H18.5C19.6046 20.5 20.5 19.6046 20.5 18.5V5.5C20.5 4.39543 19.6046 3.5 18.5 3.5H11.5"
                         stroke="currentColor" stroke-linecap="round" />
                     <path d="M12 8V16" stroke="currentColor" stroke-linecap="round" />
                     <path d="M16 12H8" stroke="currentColor" stroke-linecap="round" />
@@ -65,6 +67,7 @@
         </div>
 
     </header>
+
 
     <main>
         <section class="hero">
@@ -187,15 +190,20 @@
 
         <section class="diagonal-section">
             <div class="featured-section">
+
                 <div class="featured-header">
                     <h2><span>Apenas o melhor para o melhor</span></h2>
                     <p>Encontre os melhores <strong>eventos</strong> para participar.</p>
                 </div>
+                <div>
+                    <p class="section-eyebrow">Eventos em Destaque</p>
+                </div>
 
                 <div class="featured-carousel-wrapper">
                     <button class="carousel-arrow prev" id="carousel-prev" aria-label="Evento anterior">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M9 6l6 6-6 6"/>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 6l6 6-6 6" />
                         </svg>
                     </button>
 
@@ -265,8 +273,8 @@
                                     <div class="featured-footer">
                                         <button class="btn btn-secondary">
                                             Saiba-mais
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" aria-hidden="true">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                 <path d="M5 12h14M13 6l6 6-6 6" />
                                             </svg>
                                         </button>
@@ -379,8 +387,8 @@
                                     <div class="featured-footer">
                                         <button class="btn btn-secondary">
                                             Saiba-mais
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" aria-hidden="true">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                 <path d="M5 12h14M13 6l6 6-6 6" />
                                             </svg>
                                         </button>
@@ -494,8 +502,8 @@
                                     <div class="featured-footer">
                                         <button class="btn btn-secondary">
                                             Saiba-mais
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" aria-hidden="true">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                 <path d="M5 12h14M13 6l6 6-6 6" />
                                             </svg>
                                         </button>
@@ -548,8 +556,9 @@
                     </div>
 
                     <button class="carousel-arrow next" id="carousel-next" aria-label="Próximo evento">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M9 6l6 6-6 6"/>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 6l6 6-6 6" />
                         </svg>
                     </button>
                 </div>
@@ -562,7 +571,12 @@
         </section>
 
         <section class="news-section" id="news">
+            <div>
+                <p class="section-eyebrow">Noticias em Destaque</p>
+            </div>
+
             <div class="news-header">
+
                 <div>
                     <h2><span>Últimas Notícias</span></h2>
                     <p>Fique por dentro do que acontece na universidade.</p>
@@ -809,6 +823,9 @@
 
         <section class="diagonal-section">
             <div class="events-section">
+                <div>
+                    <p class="section-eyebrow">Eventos</p>
+                </div>
                 <div class="events-header">
                     <div>
                         <h2><span>Próximos eventos</span></h2>
@@ -869,6 +886,9 @@
         </section>
 
         <section class="faq-section">
+            <div>
+                <p class="section-eyebrow">Perguntas Frequentes</p>
+            </div>
             <div class="faq-header">
                 <h2><span>Perguntas Frequentes</span></h2>
                 <p>Tire suas dúvidas sobre eventos, inscrições e certificados no Campus Connect.</p>
@@ -876,164 +896,187 @@
 
             <div class="faq-list" id="faq-list">
                 <div class="faq-item active">
-                <button class="faq-question-row">
-                    <span class="faq-number">01</span>
-                    <span class="faq-question-text">Como faço para me inscrever em um evento?</span>
-                    <span class="faq-toggle" aria-hidden="true">
-                    <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                    <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
-                    </span>
-                </button>
-                <div class="faq-answer">
-                    <p class="faq-answer-text">
-                    Basta acessar a página do evento desejado e clicar em "Inscreva-se" ou "Ver detalhes".
-                    Alunos com conta ativa na plataforma têm a inscrição confirmada instantaneamente.
-                    </p>
-                </div>
-                </div>
-
-                <div class="faq-item">
-                <button class="faq-question-row">
-                    <span class="faq-number">02</span>
-                    <span class="faq-question-text">Os eventos têm algum custo?</span>
-                    <span class="faq-toggle" aria-hidden="true">
-                    <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                    <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
-                    </span>
-                </button>
-                <div class="faq-answer">
-                    <p class="faq-answer-text">
-                    A grande maioria dos eventos listados é gratuita para estudantes da universidade.
-                    Eventos com custo indicam o valor claramente na página do evento.
-                    </p>
-                </div>
+                    <button class="faq-question-row">
+                        <span class="faq-number">01</span>
+                        <span class="faq-question-text">Como faço para me inscrever em um evento?</span>
+                        <span class="faq-toggle" aria-hidden="true">
+                            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                            <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">
+                            Basta acessar a página do evento desejado e clicar em "Inscreva-se" ou "Ver detalhes".
+                            Alunos com conta ativa na plataforma têm a inscrição confirmada instantaneamente.
+                        </p>
+                    </div>
                 </div>
 
                 <div class="faq-item">
-                <button class="faq-question-row">
-                    <span class="faq-number">03</span>
-                    <span class="faq-question-text">Recebo certificado de participação?</span>
-                    <span class="faq-toggle" aria-hidden="true">
-                    <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                    <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
-                    </span>
-                </button>
-                <div class="faq-answer">
-                    <p class="faq-answer-text">
-                    Sim, eventos com carga horária mínima de 2h emitem certificado digital automaticamente
-                    após a confirmação de presença.
-                    </p>
-                </div>
+                    <button class="faq-question-row">
+                        <span class="faq-number">02</span>
+                        <span class="faq-question-text">Os eventos têm algum custo?</span>
+                        <span class="faq-toggle" aria-hidden="true">
+                            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                            <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">
+                            A grande maioria dos eventos listados é gratuita para estudantes da universidade.
+                            Eventos com custo indicam o valor claramente na página do evento.
+                        </p>
+                    </div>
                 </div>
 
                 <div class="faq-item">
-                <button class="faq-question-row">
-                    <span class="faq-number">04</span>
-                    <span class="faq-question-text">Posso cancelar minha inscrição?</span>
-                    <span class="faq-toggle" aria-hidden="true">
-                    <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                    <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
-                    </span>
-                </button>
-                <div class="faq-answer">
-                    <p class="faq-answer-text">
-                    Sim, você pode cancelar até 24 horas antes do início do evento diretamente pela sua área do estudante.
-                    </p>
+                    <button class="faq-question-row">
+                        <span class="faq-number">03</span>
+                        <span class="faq-question-text">Recebo certificado de participação?</span>
+                        <span class="faq-toggle" aria-hidden="true">
+                            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                            <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">
+                            Sim, eventos com carga horária mínima de 2h emitem certificado digital automaticamente
+                            após a confirmação de presença.
+                        </p>
+                    </div>
                 </div>
+
+                <div class="faq-item">
+                    <button class="faq-question-row">
+                        <span class="faq-number">04</span>
+                        <span class="faq-question-text">Posso cancelar minha inscrição?</span>
+                        <span class="faq-toggle" aria-hidden="true">
+                            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                            <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">
+                            Sim, você pode cancelar até 24 horas antes do início do evento diretamente pela sua área do
+                            estudante.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
     </main>
-    
+
 
     <footer class="site-footer">
-    <div class="footer-topbar">
-        <span class="footer-copyright">© 2026 Campus Connect. Todos os direitos reservados.</span>
+        <div class="footer-topbar">
+            <span class="footer-copyright">© 2026 Campus Connect. Todos os direitos reservados.</span>
 
-        <nav class="footer-legal-links" aria-label="Links legais">
-        <a href="#">Termos</a>
-        <a href="#">Privacidade</a>
-        <a href="#">Cookies</a>
-        </nav>
+            <nav class="footer-legal-links" aria-label="Links legais">
+                <a href="#">Termos</a>
+                <a href="#">Privacidade</a>
+                <a href="#">Cookies</a>
+            </nav>
 
-        <div class="footer-social-icons">
-        <a href="#" aria-label="Instagram" class="footer-social-circle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-            </svg>
-        </a>
-        <a href="#" aria-label="LinkedIn" class="footer-social-circle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4"/>
-            </svg>
-        </a>
-        <a href="#" aria-label="YouTube" class="footer-social-circle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="2" y="6" width="20" height="12" rx="4"/><path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/>
-            </svg>
-        </a>
-        </div>
-    </div>
-
-    <div class="footer-main">
-        <div class="footer-newsletter">
-        <h3 class="footer-newsletter-title">Fique por dentro das novidades</h3>
-
-        <form class="footer-newsletter-form" id="footer-newsletter-form">
-            <input
-            type="email"
-            id="footer-newsletter-email"
-            class="footer-newsletter-input"
-            placeholder="Seu e-mail"
-            aria-label="E-mail para receber novidades"
-            required
-            >
-            <button type="submit" class="footer-newsletter-submit" aria-label="Inscrever-se">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M7 17L17 7M7 7h10v10"/>
-            </svg>
-            </button>
-        </form>
-
-        <p class="footer-newsletter-desc">
-            Receba os próximos eventos, workshops e novidades da universidade direto no seu e-mail.
-            Sem spam, cancele quando quiser.
-        </p>
-
-        <p class="footer-newsletter-feedback" id="footer-newsletter-feedback"></p>
-
-        <div class="footer-social-text-links">
-            <a href="#">Instagram</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">YouTube</a>
-        </div>
+            <div class="footer-social-icons">
+                <a href="#" aria-label="Instagram" class="footer-social-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="5" />
+                        <circle cx="12" cy="12" r="4" />
+                        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                    </svg>
+                </a>
+                <a href="#" aria-label="LinkedIn" class="footer-social-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="3" />
+                        <path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4" />
+                    </svg>
+                </a>
+                <a href="#" aria-label="YouTube" class="footer-social-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="6" width="20" height="12" rx="4" />
+                        <path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none" />
+                    </svg>
+                </a>
+            </div>
         </div>
 
-        <nav class="footer-link-column" aria-label="Navegação">
-        <h4 class="footer-column-title">Navegação</h4>
-        <a href="index.html">Início</a>
-        <a href="pages/events.html">Eventos</a>
-        <a href="#">Sobre</a>
-        <a href="pages/profile.html">Perfil</a>
-        </nav>
+        <div class="footer-main">
+            <div class="footer-newsletter">
+                <h3 class="footer-newsletter-title">Fique por dentro das novidades</h3>
 
-        <nav class="footer-link-column" aria-label="Institucional">
-        <h4 class="footer-column-title">Institucional</h4>
-        <a href="pages/contact.html">Contato</a>
-        <a href="#">FAQ</a>
-        <a href="#">Termos de Uso</a>
-        <a href="#">Privacidade</a>
-        </nav>
+                <form class="footer-newsletter-form" id="footer-newsletter-form">
+                    <input type="email" id="footer-newsletter-email" class="footer-newsletter-input"
+                        placeholder="Seu e-mail" aria-label="E-mail para receber novidades" required>
+                    <button type="submit" class="footer-newsletter-submit" aria-label="Inscrever-se">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M7 17L17 7M7 7h10v10" />
+                        </svg>
+                    </button>
+                </form>
 
-        <nav class="footer-link-column" aria-label="Comunidade">
-        <h4 class="footer-column-title">Comunidade</h4>
-        <a href="#">Criar Conta</a>
-        <a href="#">Entrar</a>
-        <a href="#">Ajuda</a>
-        <a href="#">Contato</a>
-        </nav>
-    </div>
+                <p class="footer-newsletter-desc">
+                    Receba os próximos eventos, workshops e novidades da universidade direto no seu e-mail.
+                    Sem spam, cancele quando quiser.
+                </p>
+
+                <p class="footer-newsletter-feedback" id="footer-newsletter-feedback"></p>
+
+                <div class="footer-social-text-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">YouTube</a>
+                </div>
+            </div>
+
+            <nav class="footer-link-column" aria-label="Navegação">
+                <h4 class="footer-column-title">Navegação</h4>
+                <a href="index.html">Início</a>
+                <a href="pages/events.html">Eventos</a>
+                <a href="#">Sobre</a>
+                <a href="pages/profile.html">Perfil</a>
+            </nav>
+
+            <nav class="footer-link-column" aria-label="Institucional">
+                <h4 class="footer-column-title">Institucional</h4>
+                <a href="pages/contact.html">Contato</a>
+                <a href="#">FAQ</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">Privacidade</a>
+            </nav>
+
+            <nav class="footer-link-column" aria-label="Comunidade">
+                <h4 class="footer-column-title">Comunidade</h4>
+                <a href="#">Criar Conta</a>
+                <a href="#">Entrar</a>
+                <a href="#">Ajuda</a>
+                <a href="#">Contato</a>
+            </nav>
+        </div>
     </footer>
 
     <script src="js/auth.js"></script>
