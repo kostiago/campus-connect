@@ -5,25 +5,215 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campus Connect</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/events-page.css">
+    <link rel="stylesheet" href="../css/components/button.css">
+
 </head>
 
 <body>
-    <header>
-        <h2>Campus Connect - Eventos</h2>
-        <p>Conectando estudantes, professores e oportunidades</p>
-        <nav>
+    <header class="site-header">
+        <div class="logo">
+            <span class="logo-icon" aria-hidden="true">🎓</span>
+            <span>Campus <span class="logo-highlight">Connect</span></span>
+        </div>
+        <nav class="main-nav" aria-label="Navegação principal">
             <ul>
                 <li><a href="../index.html">Início</a></li>
-                <li><a href="events.html">Eventos</a></li>
+                <li><a href="events.html" aria-current="page">Eventos</a></li>
                 <li><a href="about.html">Sobre</a></li>
-                <li><a href="profile.html">Perfil</a></li>
                 <li><a href="contact.html">Contato</a></li>
             </ul>
         </nav>
+
+        <div class="header-actions">
+            <div class="search-wrapper">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+
+                    <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.2" />
+
+                    <path
+                        d="M11 8C10.606 8 10.2159 8.0776 9.85195 8.22836C9.48797 8.37913 9.15726 8.6001 8.87868 8.87868C8.6001 9.15726 8.37913 9.48797 8.22836 9.85195C8.0776 10.2159 8 10.606 8 11"
+                        stroke="currentColor" opacity=".35" stroke-width="1.2" stroke-linecap="round" />
+
+                    <path d="M20 20L17 17" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+
+                </svg>
+
+                <input type="search" id="search" class="search-input"
+                    placeholder="Buscar eventos, workshops, palestras..." aria-label="Buscar eventos">
+            </div>
+
+            <button class="btn btn-secondary">
+                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="8" r="4" fill="currentColor" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M12 13C8.33033 13 5.32016 15.4204 5.02395 18.5004C4.99752 18.7753 5.22389 19 5.50003 19H18.5C18.7762 19.0025 18.9761 18.7753 18.9761 18.5004C18.6799 15.4204 15.6697 13 12 13Z"
+                        fill="currentColor" opacity="0.25" />
+                </svg>
+                Entrar
+            </button>
+            <button class="btn btn-primary">
+                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+
+                    <path
+                        d="M8.5 3.5H5.5C4.39543 3.5 3.5 4.39543 3.5 5.5V18.5C3.5 19.6046 4.39543 20.5 5.5 20.5H18.5C19.6046 20.5 20.5 19.6046 20.5 18.5V5.5C20.5 4.39543 19.6046 3.5 18.5 3.5H11.5"
+                        stroke="currentColor" stroke-linecap="round" />
+
+                    <path d="M12 8V16" stroke="currentColor" stroke-linecap="round" />
+
+                    <path d="M16 12H8" stroke="currentColor" stroke-linecap="round" />
+
+                </svg>
+                Criar Conta
+            </button>
+        </div>
+
     </header>
 
-    
+    <main class="events-page">
+        <div class="events-page-header">
+            <h1>Eventos do Campus</h1>
+            <p>Descubra e participe de eventos incríveis acontecendo na universidade.</p>
+        </div>
 
+        <div class="events-tabs-bar" id="events-tabs-bar">
+
+            <div class="events-tabs-list">
+                <button class="events-tab active" data-categoria="todos">Todos os Eventos</button>
+                <button class="events-tab" data-categoria="academico">Acadêmico</button>
+                <button class="events-tab" data-categoria="tecnologia">Tecnologia</button>
+                <button class="events-tab" data-categoria="esportes">Esportes</button>
+                <button class="events-tab" data-categoria="cultural">Cultural</button>
+                <button class="events-tab" data-categoria="carreira">Carreira</button>
+                <button class="events-tab" data-categoria="pesquisa">Pesquisa</button>
+                <button class="events-tab" data-categoria="design">Design</button>
+            </div>
+
+            <div class="search-wrapper">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                    <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.2" />
+                    <path
+                        d="M11 8C10.606 8 10.2159 8.0776 9.85195 8.22836C9.48797 8.37913 9.15726 8.6001 8.87868 8.87868C8.6001 9.15726 8.37913 9.48797 8.22836 9.85195C8.0776 10.2159 8 10.606 8 11"
+                        stroke="currentColor" opacity=".35" stroke-width="1.2" stroke-linecap="round" />
+                    <path d="M20 20L17 17" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                </svg>
+                <input type="search" id="event-search" class="search-input"
+                    placeholder="Buscar eventos, workshops, palestras..." aria-label="Buscar eventos">
+            </div>
+        </div>
+
+        <div class="events-page-body">
+            <aside class="events-sidebar">
+                <div class="sidebar-filter-block sidebar-calendar-block">
+                    <div class="calendar-header">
+                        <button class="calendar-nav-btn" id="calendar-prev" aria-label="Mês anterior">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+                        <span class="calendar-month-label" id="calendar-month-label"></span>
+                        <button class="calendar-nav-btn" id="calendar-next" aria-label="Próximo mês">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M9 6l6 6-6 6" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="calendar-weekdays">
+                        <span>Do</span><span>Se</span><span>Te</span><span>Qa</span><span>Qi</span><span>Se</span><span>Sa</span>
+                    </div>
+
+                    <div class="calendar-days" id="calendar-days"></div>
+                </div>
+
+                <div class="sidebar-filter-block">
+                    <h3 class="sidebar-filter-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 7v5l3 3" />
+                        </svg>
+                        Período
+                    </h3>
+                    <label class="sidebar-checkbox"><input type="checkbox" disabled> Hoje</label>
+                    <label class="sidebar-checkbox"><input type="checkbox" disabled> Esta semana</label>
+                    <label class="sidebar-checkbox"><input type="checkbox" disabled> Este mês</label>
+                    <label class="sidebar-checkbox"><input type="checkbox" disabled> Próximos</label>
+                </div>
+
+                <div class="sidebar-filter-block">
+                    <h3 class="sidebar-filter-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z" />
+                            <circle cx="12" cy="10" r="2.5" />
+                        </svg>
+                        Local
+                    </h3>
+                    <label class="sidebar-checkbox"><input type="checkbox" disabled> Campus Principal</label>
+                    <label class="sidebar-checkbox"><input type="checkbox" disabled> Biblioteca</label>
+                    <label class="sidebar-checkbox"><input type="checkbox" disabled> Auditório</label>
+                    <label class="sidebar-checkbox"><input type="checkbox" disabled> Centro Estudantil</label>
+                    <label class="sidebar-checkbox"><input type="checkbox" disabled> Complexo Esportivo</label>
+                </div>
+
+                <div class="sidebar-filter-block">
+                    <h3 class="sidebar-filter-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" />
+                            <path d="M16 2v4M8 2v4M3 10h18" />
+                        </svg>
+                        Ano Letivo
+                    </h3>
+                    <select class="sidebar-select" disabled>
+                        <option>Selecionar ano</option>
+                        <option>2026</option>
+                        <option>2025</option>
+                    </select>
+                </div>
+
+                <div class="sidebar-filter-block">
+                    <h3 class="sidebar-filter-title">Faixa de Preço</h3>
+                    <div class="price-range">
+                        <div class="price-range-track">
+                            <div class="price-range-fill" id="price-range-fill"></div>
+                        </div>
+                        <input type="range" id="price-min" class="price-range-input" min="0" max="120" value="0" step="5">
+                        <input type="range" id="price-max" class="price-range-input" min="0" max="120" value="120" step="5">
+                    </div>
+                    <div class="price-range-labels">
+                        <span id="price-min-label">$0</span>
+                        <span id="price-max-label">$120</span>
+                    </div>
+                </div>
+
+                <p class="sidebar-note">Filtros de período, local e ano ainda não filtram os eventos — em breve.</p>
+            </aside>
+
+            <div class="events-page-grid" id="events-page-grid"></div>
+        </div>
+
+        <div class="pagination-bar">
+            <div class="pagination-spacer" aria-hidden="true"></div>
+
+            <div class="pagination-center">
+                <nav class="pagination" id="pagination-nav" aria-label="Paginação de eventos"></nav>
+                <p class="pagination-summary" id="pagination-summary"></p>
+            </div>
+
+            <div class="results-per-page">
+                <span>Resultados por página</span>
+                <select id="results-per-page-select">
+                    <option value="6">6</option>
+                    <option value="9">9</option>
+                    <option value="12">12</option>
+                </select>
+            </div>
+        </div>
+    </main>
+    <script src="../data/events-mock.js"></script>
+    <script src="../js/pages/events/events-page.js"></script>
+    <script src="../js/pages/events/components/sidebar-calendar.js"></script>
+    <script src="../js/pages/events/components/price-range.js"></script>
 </body>
 
 </html>

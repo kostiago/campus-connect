@@ -1,0 +1,130 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem; /* espaçamento base entre texto e ícone */
+
+    height: var(--btn-height);
+    padding: 0 var(--btn-padding-x);
+
+    border-radius: var(--radius-sm);
+
+    /* deixa o botão se comportar de acordo com o texto */
+    width: fit-content;
+    /* remova o min-width fixo, ou deixe como "piso" bem menor */
+    /* min-width: 140px;  <-- remover ou reduzir bastante */
+
+    height: 44px;
+
+    flex: none;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+    border: 1px solid transparent;
+
+    transition: var(--btn-transition);
+    text-decoration: none;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.btn-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-left: 2px; /* respiro extra só pro ícone, sem afetar o gap geral */
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn:focus-visible {
+    outline: none;
+
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .18);
+}
+
+.btn svg {
+    transition: transform .25s ease;
+}
+.btn:hover svg {
+    transform: translateX(4px);
+}
+
+
+.btn:disabled,
+.btn-disabled {
+    opacity: .45;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+}
+
+
+
+.btn-secondary {
+    
+    border:1px solid var(--color-border);
+
+    background:var(--color-surface);
+
+    color:var(--color-secondary);
+
+}
+
+.btn-secondary:hover {
+    background: var(--color-primary-bg);
+}
+
+
+.btn-success {
+    background: var(--color-success);
+    color: white;
+    border-color: var(--color-success);
+}
+
+.btn-success:hover{
+
+    filter:brightness(.95);
+
+}
+
+
+.btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: background-color .25s ease, color .25s ease, transform .25s ease;
+
+}
+
+
+.btn-link:hover {
+    background:rgba(37,99,235,.08);
+    border-radius: 10px;
+    
+}

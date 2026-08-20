@@ -1,0 +1,526 @@
+/*
+  Dashboard do Aluno (pages/dashboard-aluno.html)
+  Depende do design system global (:root) do site.
+*/
+
+.dashboard-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-xl) 24px;
+}
+
+.dashboard-header {
+  margin-bottom: var(--space-lg);
+}
+
+.dashboard-header h1 {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+
+.dashboard-header p {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ---------- Grid principal ---------- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr 320px;
+  grid-template-areas:
+    "progress   highlight   profile"
+    "progress   certs       inscricoes"
+    "recommend  recommend   activity";
+  gap: 20px;
+  align-items: stretch;
+}
+
+.area-progress    { grid-area: progress; }
+.area-highlight   { grid-area: highlight; }
+.area-certs       { grid-area: certs; }
+.area-profile     { grid-area: profile; }
+.area-inscricoes  { grid-area: inscricoes; }
+.area-recommend   { grid-area: recommend; }
+.area-activity    { grid-area: activity; }
+
+/* ---------- Card base ---------- */
+.dash-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 18px; /* era var(--radius-md), deixei maior */
+  padding: 22px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04); /* mais suave que antes */
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+
+.dash-card:hover {
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.dash-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.dash-card-header h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dash-card-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.dash-period-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+/* ---------- Anéis de progresso ---------- */
+.progress-rings-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.progress-rings {
+  width: 180px;
+  height: 180px;
+  transform: rotate(-90deg);
+}
+
+.progress-ring-track {
+  fill: none;
+  stroke: var(--color-bg);
+  stroke-width: 8;
+}
+
+.progress-ring-value {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 600ms ease;
+}
+
+.progress-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.progress-legend li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  padding: 8px 0;
+}
+
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-dot.dot-blue { background: var(--color-primary); }
+.legend-dot.dot-amber { background: var(--color-amber); }
+.legend-dot.dot-purple { background: var(--color-purple); }
+.legend-dot.dot-green { background: var(--color-success); }
+
+.legend-label {
+  flex: 1;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.legend-percent {
+  color: var(--color-text-muted);
+  font-weight: 700;
+  font-size: 13px;
+  min-width: 34px;
+  text-align: right;
+}
+
+/* ---------- Card de destaque (próximo evento) ---------- */
+.area-highlight {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #6366f1 100%);
+  color: #fff;
+  border: none;
+  justify-content: center;
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Elemento decorativo sutil no canto */
+.area-highlight::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.highlight-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.highlight-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.highlight-number {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+  margin: 10px 0 4px;
+  position: relative;
+}
+
+.highlight-number span {
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.highlight-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 6px 0 0;
+}
+
+.highlight-meta {
+  font-size: 13px;
+  opacity: 0.85;
+  margin: 4px 0 0;
+}
+
+/* ---------- Certificados (barra segmentada) ---------- */
+.certs-count {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 0 0 12px;
+}
+
+.certs-count span {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.certs-bar {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.certs-bar-segment {
+  flex: 1;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg);
+}
+
+.certs-bar-segment.filled {
+  background: var(--color-success);
+}
+
+.certs-caption {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ---------- Perfil ---------- */
+.area-profile {
+  gap: 14px;
+}
+
+.profile-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), #a855f7);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);;
+}
+
+.profile-name {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.profile-course {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: 2px 0 0;
+}
+
+.profile-stats {
+ display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.profile-stat {
+  text-align: center;
+  padding: 10px 4px;
+  border-radius: 10px;
+  transition: background-color .2s ease;
+}
+
+.profile-stat:hover {
+  background: var(--color-bg);
+}
+
+.profile-stat-value {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.profile-stat-label {
+  font-size: 13px;
+  font-weight: 800;
+  margin: 0;
+  color: var(--color-primary);
+}
+
+/* ---------- Minhas inscrições ---------- */
+.inscricoes-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inscricao-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--color-bg);
+  transition: background-color .2s ease, transform .15s ease;
+  cursor: pointer;
+}
+
+.inscricao-item:hover {
+  background: #eef0f4;
+  transform: translateX(2px);
+}
+
+.inscricao-info {
+  min-width: 0;
+}
+
+.inscricao-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inscricao-date {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: 2px 0 0;
+}
+
+.status-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 5px 11px;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: .01em;
+}
+
+.status-confirmada { background: var(--color-success-bg); color: var(--color-success); }
+.status-aguardando { background: var(--color-amber-bg); color: var(--color-amber); }
+.status-concluida { background: var(--color-border); color: var(--color-text-muted); }
+
+/* ---------- Recomendado ---------- */
+.area-recommend {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.recommend-image {
+  width: 150px;
+  height: 110px;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+.recommend-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.recommend-category {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-purple);
+  margin: 0 0 4px;
+}
+
+.recommend-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.recommend-desc {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 0 0 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.recommend-meta {
+  display: flex;
+  gap: 14px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+}
+
+/* ---------- Atividade recente ---------- */
+.activity-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.activity-item {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.activity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.activity-dot.tipo-inscricao { background: var(--color-primary); }
+.activity-dot.tipo-certificado { background: var(--color-success); }
+.activity-dot.tipo-favorito { background: var(--color-amber); }
+
+.activity-text {
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.activity-time {
+  display: block;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 1000px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "progress   highlight"
+      "progress   certs"
+      "profile    profile"
+      "inscricoes activity"
+      "recommend  recommend";
+  }
+
+  .area-recommend {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .recommend-image {
+    width: 100%;
+    height: 140px;
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "progress"
+      "highlight"
+      "certs"
+      "profile"
+      "inscricoes"
+      "activity"
+      "recommend";
+  }
+}

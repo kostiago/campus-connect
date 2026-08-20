@@ -1,0 +1,927 @@
+.event-details-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.details-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--color-text-muted);
+    margin-bottom: 12px;
+}
+
+.details-breadcrumb a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.details-breadcrumb .current {
+    color: var(--color-text-muted);
+}
+
+.details-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--color-text);
+    text-decoration: none;
+    margin-bottom: 24px;
+}
+
+.details-back-link svg {
+    width: 20px;
+    height: 20px;
+}
+
+.details-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+    align-items: start;
+}
+
+/* Hero — banner cheio, com cantos arredondados nos 4 lados.
+   O ticket-card "flutua" por cima dele usando margin-top negativa. */
+.details-hero {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 21 / 8;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: -130px;
+    z-index: 1;
+}
+
+.details-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.details-hero-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    background: #fff;
+}
+
+.details-hero-status {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    background: #fff;
+    color: var(--color-text);
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-primary);
+}
+
+/* Ticket card — flutua sobre o hero, arredondado nos 4 cantos,
+   com margem lateral pra deixar a foto visível nas bordas. */
+.ticket-card {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    /* 3 colunas pra 3 filhos diretos: painel esquerdo, divider, painel direito.
+       Com só 2 colunas o painel direito quebrava pra uma nova linha. */
+    grid-template-columns: 1fr 40px 320px;
+    background: var(--color-surface);
+    border-radius: 20px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .16);
+    margin: 0 28px 24px;
+    overflow: visible;
+}
+
+.ticket-panel {
+    padding: 28px 32px;
+}
+
+.ticket-panel-left h1 {
+    font-size: 26px;
+    font-weight: 800;
+    margin: 0 0 20px;
+    line-height: 1.2;
+}
+
+.ticket-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 18px;
+    gap: 16px;
+}
+
+.ticket-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 18px;
+}
+
+.ticket-row .ticket-col {
+    margin-bottom: 0;
+}
+
+.ticket-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--color-text-muted);
+}
+
+.ticket-label svg {
+    width: 13px;
+    height: 13px;
+    color: var(--color-primary);
+}
+
+.ticket-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.ticket-address {
+    color: var(--color-text);
+}
+
+.ticket-time {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-text);
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.ticket-share {
+    margin-top: 8px;
+}
+
+.ticket-share-label {
+    display: block;
+    font-size: 12px;
+    color: var(--color-text-muted);
+    margin-bottom: 10px;
+}
+
+.ticket-share-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.ticket-share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: #f0f0f2;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: background-color .2s ease, color .2s ease;
+}
+
+.ticket-share-btn:hover {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.ticket-share-btn svg {
+    width: 15px;
+    height: 15px;
+}
+
+/* Divider — linha tracejada com um único "furo" circular
+   centralizado verticalmente, estilo canhoto de ingresso. */
+.ticket-divider {
+    position: relative;
+    width: 2px;
+    border-left: 2px dashed var(--color-border);
+    align-self: stretch;
+    justify-self: center;
+    margin: 28px 0;
+}
+
+.ticket-notch {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-bg);
+}
+
+.ticket-notch-top,
+.ticket-notch-bottom {
+    top: 50%;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+}
+
+.ticket-panel-right h2 {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0 0 20px;
+}
+
+/* Resumo de preço + vagas dentro do ticket */
+.ticket-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 22px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.ticket-summary-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-summary-vagas {
+    flex: 1;
+    max-width: 140px;
+}
+
+.details-price-label {
+    font-size: 11px;
+    color: var(--color-text-muted);
+    margin-bottom: 2px;
+}
+
+.details-price {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.details-vagas-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 8px;
+}
+
+.details-vagas-label {
+    font-size: 11px;
+    color: var(--color-text-muted);
+}
+
+.details-vagas-value {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+.details-vagas-track {
+    height: 5px;
+    border-radius: 999px;
+    background: var(--color-border);
+    overflow: hidden;
+}
+
+.details-vagas-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--color-primary), #a855f7);
+}
+
+.ticket-calendar-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.ticket-calendar-row span {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+}
+
+.ticket-calendar-btn {
+    width: 100%;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--color-primary), #ec4899);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity .2s ease;
+}
+
+.ticket-calendar-btn:hover {
+    opacity: .9;
+}
+
+.ticket-or {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: var(--color-text-muted);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.ticket-or::before,
+.ticket-or::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+}
+
+.ticket-or span {
+    padding: 0 12px;
+}
+
+.ticket-qr-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.ticket-qr-row span {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+}
+
+.ticket-qr {
+    width: 110px;
+    height: 110px;
+    border-radius: 8px;
+}
+
+@media (max-width: 700px) {
+    .details-hero {
+        margin-bottom: -60px;
+    }
+    .ticket-card {
+        grid-template-columns: 1fr;
+        margin: 0 14px 24px;
+    }
+    .ticket-divider {
+        display: none;
+    }
+    .ticket-panel-right {
+        border-top: 1px dashed var(--color-border);
+    }
+}
+
+/* Blocos genéricos (Sobre o Evento, Termos, etc) */
+.details-block {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.details-block h2 {
+    font-size: 16px;
+    font-weight: 800;
+    margin: 0 0 12px;
+}
+
+.details-block p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+/* Card de abas */
+.details-tabs-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.details-tabs-nav {
+    display: flex;
+    gap: 4px;
+    padding: 16px 20px 0;
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+}
+
+.details-tab {
+    appearance: none;
+    background: none;
+    border: none;
+    padding: 10px 4px 14px;
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color .2s ease, border-color .2s ease;
+}
+
+.details-tab:hover {
+    color: var(--color-text);
+}
+
+.details-tab.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+.details-tab-panel {
+    display: none;
+    padding: 24px;
+}
+
+.details-tab-panel.active {
+    display: block;
+}
+
+/* Timeline */
+.timeline-list {
+    position: relative;
+    --timeline-when-width: 150px;
+    --timeline-gap: 16px;
+    --timeline-dot-col-width: 24px;
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: var(--timeline-when-width) var(--timeline-dot-col-width) 1fr;
+    gap: var(--timeline-gap);
+    padding-bottom: 28px;
+    position: relative;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--timeline-when-width) + var(--timeline-gap) + (var(--timeline-dot-col-width) / 2));
+    top: 20px;
+    bottom: 0;
+    width: 1px;
+    background: var(--color-border);
+}
+
+.timeline-when {
+    text-align: right;
+}
+
+.timeline-when strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.timeline-date,
+.timeline-time {
+    display: block;
+    font-size: 12.5px;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+}
+
+.timeline-dot-col {
+    display: flex;
+    justify-content: center;
+}
+
+.timeline-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary);
+    background: #fff;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.timeline-content p {
+    margin: 0 0 8px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+.timeline-content span {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    opacity: .8;
+}
+
+.tab-empty-state {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 13px;
+    color: var(--color-text-muted);
+}
+
+/* Palestrante */
+.palestrante-card {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.palestrante-info h4 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.palestrante-info .cargo {
+    font-size: 13px;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.palestrante-info .bio {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin-bottom: 14px;
+}
+
+.palestrante-socials {
+    display: flex;
+    gap: 8px;
+}
+
+.palestrante-social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: #f7f7f8;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: background-color .2s ease, color .2s ease;
+}
+
+.palestrante-social-btn:hover {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.palestrante-social-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Patrocinadores */
+.patrocinadores-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.patrocinador-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: #f7f7f8;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: background-color .2s ease;
+}
+
+.patrocinador-chip:hover {
+    background: #ececee;
+}
+
+.patrocinador-chip svg {
+    width: 13px;
+    height: 13px;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+}
+
+/* Termos e Condições */
+.terms-group {
+    margin-bottom: 16px;
+}
+
+.terms-group h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.terms-group ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.terms-group li {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+
+/* Mapa de Assentos */
+.seatplan-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.seatplan-card h3 {
+    font-size: 15px;
+    font-weight: 800;
+    margin: 0 0 16px;
+}
+
+.seatplan-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+
+.seatplan-row {
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.seatplan-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.seatplan-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.seatplan-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.seatplan-legend-text {
+    flex: 1;
+}
+
+.seatplan-legend-name {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.seatplan-legend-type {
+    font-size: 11px;
+    color: var(--color-text-muted);
+}
+
+.seatplan-legend-price {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* Lotes de Ingresso */
+.lotes-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.lotes-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.lotes-card-header h3 {
+    font-size: 15px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.lotes-card-menu {
+    border: none;
+    background: none;
+    color: var(--color-text-muted);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 8px;
+}
+
+.lotes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lote-item {
+    background: #f7f7f8;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: background-color .2s ease;
+}
+
+.lote-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 14px 16px;
+    cursor: pointer;
+    gap: 12px;
+}
+
+.lote-header-left {
+    flex: 1;
+    min-width: 0;
+}
+
+.lote-nome-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.lote-nome {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.lote-badge-esgotado {
+    font-size: 11px;
+    font-weight: 700;
+    color: #dc2626;
+    background: #fee2e2;
+    padding: 2px 8px;
+    border-radius: 999px;
+    flex-shrink: 0;
+}
+
+.lote-vagas-info {
+    font-size: 12px;
+    color: var(--color-text-muted);
+}
+
+.lote-header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    padding-top: 2px;
+}
+
+.lote-preco {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--color-primary);
+}
+
+.lote-chevron {
+    width: 16px;
+    height: 16px;
+    color: var(--color-text-muted);
+    transition: transform .25s ease;
+    flex-shrink: 0;
+}
+
+.lote-item.aberto .lote-chevron {
+    transform: rotate(180deg);
+}
+
+.lote-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+}
+
+.lote-item.aberto .lote-body {
+    max-height: 300px;
+}
+
+.lote-body-inner {
+    padding: 0 16px 16px;
+    border-top: 1px solid var(--color-border);
+}
+
+.lote-beneficios {
+    list-style: none;
+    margin: 12px 0 16px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.lote-beneficios li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--color-text-muted);
+}
+
+.lote-beneficios svg {
+    width: 15px;
+    height: 15px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.lote-inscrever-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color .2s ease;
+}
+
+.lote-inscrever-btn:hover {
+    background: var(--color-primary-hover);
+}
+
+.lote-item.esgotado {
+    opacity: .55;
+}
+
+.lote-item.esgotado .lote-header {
+    cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+    .details-layout {
+        grid-template-columns: 1fr;
+    }
+}

@@ -7,10 +7,12 @@
     <title>Campus Connect</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/button.css">
 </head>
 
 <body>
-    <header class="site-header">
+    
+    <header class="site-header" >
         <div class="logo">
             <span class="logo-icon" aria-hidden="true">🎓</span>
             <span>Campus <span class="logo-highlight">Connect</span></span>
@@ -20,7 +22,6 @@
                 <li><a href="index.html" aria-current="page">Início</a></li>
                 <li><a href="pages/events.html">Eventos</a></li>
                 <li><a href="pages/about.html">Sobre</a></li>
-                <li><a href="pages/profile.html">Perfil</a></li>
                 <li><a href="pages/contact.html">Contato</a></li>
             </ul>
         </nav>
@@ -39,11 +40,11 @@
 
                 </svg>
 
-                <input type="search" id="event-search" class="search-input"
+                <input type="search" id="search" class="search-input"
                     placeholder="Buscar eventos, workshops, palestras..." aria-label="Buscar eventos">
             </div>
 
-            <button class="btn-login">
+            <a href="./pages/login.html" class="btn btn-secondary">
                 <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
                     <circle cx="12" cy="8" r="4" fill="currentColor" />
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -51,24 +52,22 @@
                         fill="currentColor" opacity="0.25" />
                 </svg>
                 Entrar
-            </button>
-            <button class="btn-account">
-                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
 
+            </a>
+            <a class="btn btn-primary">
+                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
                     <path
                         d="M8.5 3.5H5.5C4.39543 3.5 3.5 4.39543 3.5 5.5V18.5C3.5 19.6046 4.39543 20.5 5.5 20.5H18.5C19.6046 20.5 20.5 19.6046 20.5 18.5V5.5C20.5 4.39543 19.6046 3.5 18.5 3.5H11.5"
                         stroke="currentColor" stroke-linecap="round" />
-
                     <path d="M12 8V16" stroke="currentColor" stroke-linecap="round" />
-
                     <path d="M16 12H8" stroke="currentColor" stroke-linecap="round" />
-
                 </svg>
                 Criar Conta
-            </button>
+            </a>
         </div>
 
     </header>
+
 
     <main>
         <section class="hero">
@@ -85,14 +84,14 @@
                 </p>
 
                 <div class="cta-group">
-                    <button class="btn-primary" id="explore-events-btn"> Explorar Eventos
+                    <a class="btn btn-primary" id="explore-events-btn"> Explorar Eventos
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" aria-hidden="true">
                             <path d="M5 12h14M13 6l6 6-6 6" />
                         </svg>
-                    </button>
+                    </a>
 
-                    <a href="pages/events.html" class="btn-link">
+                    <a href="pages/events.html" class="btn btn-link">
                         Saiba mais
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                             <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2"
@@ -191,44 +190,20 @@
 
         <section class="diagonal-section">
             <div class="featured-section">
+
                 <div class="featured-header">
                     <h2><span>Apenas o melhor para o melhor</span></h2>
                     <p>Encontre os melhores <strong>eventos</strong> para participar.</p>
                 </div>
+                <div>
+                    <p class="section-eyebrow">Eventos em Destaque</p>
+                </div>
 
                 <div class="featured-carousel-wrapper">
                     <button class="carousel-arrow prev" id="carousel-prev" aria-label="Evento anterior">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none">
-
-                            <ellipse
-                                cx="8"
-                                cy="8"
-                                rx="8"
-                                ry="8"
-                                transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 22 20)"
-                                fill="currentColor"
-                                opacity=".15" />
-
-                            <path
-                                d="M22.2998 12C22.2998 7.41604 18.584 3.7002 14 3.70019C9.41604 3.70019 5.7002 7.41604 5.7002 12C5.7002 16.584 9.41604 20.2998 14 20.2998C18.584 20.2998 22.2998 16.584 22.2998 12Z"
-                                stroke="currentColor"
-                                opacity=".20"
-                                stroke-width=".8" />
-
-                            <path
-                                d="M4.92893 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8079C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C22 10.0222 21.4135 8.08879 20.3147 6.4443C19.2159 4.79981 17.6541 3.51808 15.8268 2.76121C13.9996 2.00433 11.9889 1.8063 10.0491 2.19215C8.10929 2.578 6.32746 3.53041 4.92893 4.92893"
-                                stroke="currentColor"
-                                stroke-width="1.4" />
-
-                            <path
-                                d="M15 12L15.4685 11.6252L15.7684 12L15.4685 12.3748L15 12ZM3 12.6C2.66863 12.6 2.4 12.3314 2.4 12C2.4 11.6686 2.66863 11.4 3 11.4V12.6ZM11.4685 6.62518L15.4685 11.6252L14.5315 12.3748L10.5315 7.37482L11.4685 6.62518ZM15.4685 12.3748L11.4685 17.3748L10.5315 16.6252L14.5315 11.6252L15.4685 12.3748ZM15 12.6H3V11.4H15V12.6Z"
-                                fill="currentColor" />
-
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 6l6 6-6 6" />
                         </svg>
                     </button>
 
@@ -296,20 +271,11 @@
                                     </p>
 
                                     <div class="featured-footer">
-                                        <button class="btn-featured-cta">
+                                        <button class="btn btn-secondary">
                                             Saiba-mais
-                                            <svg
-                                                class="btn-icon"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="none">
-
-                                                <path
-                                                    d="M16.2111 11.1056L9.73666 7.86833C8.93878 7.46939 8 8.04958 8 8.94164V15.0584C8 15.9504 8.93878 16.5306 9.73666 16.1317L16.2111 12.8944C16.9482 12.5259 16.9482 11.4741 16.2111 11.1056Z"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"/>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                                <path d="M5 12h14M13 6l6 6-6 6" />
                                             </svg>
                                         </button>
                                     </div>
@@ -357,7 +323,7 @@
                         </a>
 
                         <!-- Card 02 -->
-                         <a href="#" class="featured-card-link">
+                        <a href="#" class="featured-card-link">
                             <article class="featured-card">
                                 <div class="featured-top-row">
                                     <span class="featured-rank">02</span>
@@ -401,7 +367,7 @@
                                             </span>
                                             164 avaliações
                                         </div>
-                                        
+
 
                                     </div>
                                     <div class="featured-content-right">
@@ -413,25 +379,17 @@
 
                                 <div class="featured-bottom">
                                     <p class="featured-description">
-                                        Apresentação de projetos de pesquisa de alunos de graduação e pós-graduação, com sessões
+                                        Apresentação de projetos de pesquisa de alunos de graduação e pós-graduação, com
+                                        sessões
                                         de pôsteres e comunicações orais.
                                     </p>
 
                                     <div class="featured-footer">
-                                        <button class="btn-featured-cta">
+                                        <button class="btn btn-secondary">
                                             Saiba-mais
-                                            <svg
-                                                class="btn-icon"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="none">
-
-                                                <path
-                                                    d="M16.2111 11.1056L9.73666 7.86833C8.93878 7.46939 8 8.04958 8 8.94164V15.0584C8 15.9504 8.93878 16.5306 9.73666 16.1317L16.2111 12.8944C16.9482 12.5259 16.9482 11.4741 16.2111 11.1056Z"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"/>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                                <path d="M5 12h14M13 6l6 6-6 6" />
                                             </svg>
                                         </button>
                                     </div>
@@ -477,7 +435,7 @@
 
                             </article>
                         </a>
-                        
+
 
                         <!-- Card 03 -->
                         <a href="#" class="featured-card-link">
@@ -536,25 +494,17 @@
 
                                 <div class="featured-bottom">
                                     <p class="featured-description">
-                                        Prática de metodologias de design centrado no usuário aplicadas a projetos reais de
+                                        Prática de metodologias de design centrado no usuário aplicadas a projetos reais
+                                        de
                                         extensão universitária, com dinâmicas em grupo.
                                     </p>
 
                                     <div class="featured-footer">
-                                        <button class="btn-featured-cta">
+                                        <button class="btn btn-secondary">
                                             Saiba-mais
-                                            <svg
-                                                class="btn-icon"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="none">
-
-                                                <path
-                                                    d="M16.2111 11.1056L9.73666 7.86833C8.93878 7.46939 8 8.04958 8 8.94164V15.0584C8 15.9504 8.93878 16.5306 9.73666 16.1317L16.2111 12.8944C16.9482 12.5259 16.9482 11.4741 16.2111 11.1056Z"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"/>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                                <path d="M5 12h14M13 6l6 6-6 6" />
                                             </svg>
                                         </button>
                                     </div>
@@ -601,72 +551,542 @@
                             </article>
                         </a>
                         <!-- Card 04 -->
-                         
-            
+
+
                     </div>
 
                     <button class="carousel-arrow next" id="carousel-next" aria-label="Próximo evento">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none">
-
-                            <ellipse
-                                cx="8"
-                                cy="8"
-                                rx="8"
-                                ry="8"
-                                transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 22 20)"
-                                fill="currentColor"
-                                opacity=".15" />
-
-                            <path
-                                d="M22.2998 12C22.2998 7.41604 18.584 3.7002 14 3.70019C9.41604 3.70019 5.7002 7.41604 5.7002 12C5.7002 16.584 9.41604 20.2998 14 20.2998C18.584 20.2998 22.2998 16.584 22.2998 12Z"
-                                stroke="currentColor"
-                                opacity=".20"
-                                stroke-width=".8" />
-
-                            <path
-                                d="M4.92893 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8079C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C22 10.0222 21.4135 8.08879 20.3147 6.4443C19.2159 4.79981 17.6541 3.51808 15.8268 2.76121C13.9996 2.00433 11.9889 1.8063 10.0491 2.19215C8.10929 2.578 6.32746 3.53041 4.92893 4.92893"
-                                stroke="currentColor"
-                                stroke-width="1.4" />
-
-                            <path
-                                d="M15 12L15.4685 11.6252L15.7684 12L15.4685 12.3748L15 12ZM3 12.6C2.66863 12.6 2.4 12.3314 2.4 12C2.4 11.6686 2.66863 11.4 3 11.4V12.6ZM11.4685 6.62518L15.4685 11.6252L14.5315 12.3748L10.5315 7.37482L11.4685 6.62518ZM15.4685 12.3748L11.4685 17.3748L10.5315 16.6252L14.5315 11.6252L15.4685 12.3748ZM15 12.6H3V11.4H15V12.6Z"
-                                fill="currentColor" />
-
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 6l6 6-6 6" />
                         </svg>
                     </button>
                 </div>
 
                 <!-- Um dot por card acima. A classe "active" começa no primeiro. -->
                 <div class="carousel-dots" id="carousel-dots">
-                    
+
                 </div>
             </div>
         </section>
 
         <section class="news-section" id="news">
+            <div>
+                <p class="section-eyebrow">Noticias em Destaque</p>
+            </div>
+
             <div class="news-header">
+
                 <div>
                     <h2><span>Últimas Notícias</span></h2>
                     <p>Fique por dentro do que acontece na universidade.</p>
                 </div>
-                <a href="#" class="news-view-all"> 
-                    Ver todas as noticias
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none">
-                        <path d="M16 6.70711L16.7071 6L17.4142 6.70711L16.7071 7.41421L16 6.70711ZM1 7.70711C0.447715 7.70711 0 7.25939 0 6.70711C0 6.15482 0.447715 5.70711 1 5.70711V7.70711ZM10.7071 -1.78814e-07L16.7071 6L15.2929 7.41421L9.29289 1.41421L10.7071 -1.78814e-07ZM16.7071 7.41421L10.7071 13.4142L9.29289 12L15.2929 6L16.7071 7.41421ZM16 7.70711H1V5.70711H16V7.70711Z" fill="#33363F"/>
-                    </svg>
+                <a href="#" class="news-view-all">
+                    Ver todas as noticias →
                 </a>
+            </div>
+
+            <div class="news-body">
+                <article class="news-card news-featured" aria-labelledby="news-feat-title">
+
+                    <div class="featured-media" aria-hidden="true">
+                        <div class="featured-media-bg blue">
+                            <img src="img/hero-image.png" alt="">
+                        </div>
+                    </div>
+
+
+                    <div class="featured-body-news">
+                        <div class="featured-meta-news">
+                            <span class="cat-badge cat-blue" aria-hidden="true">
+                                Educação
+                            </span>
+                            <time class="news-date" datetime="2025-07-18">
+                                <!-- ícone calendário mini -->
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                    <rect x="1" y="2" width="10" height="9" rx="2" stroke="currentColor"
+                                        stroke-width="1.3" />
+                                    <path d="M1 5h10" stroke="currentColor" stroke-width="1.3" />
+                                    <rect x="3.5" y="1" width="1.2" height="2" rx="0.6" fill="currentColor" />
+                                    <rect x="7.3" y="1" width="1.2" height="2" rx="0.6" fill="currentColor" />
+                                </svg>
+                                14 jul 2025
+                            </time>
+                        </div>
+
+                        <h3 class="featured-title" id="news-feat-title">Universidade anuncia novo edital de bolsas de
+                            extensão para 2026</h3>
+                        <p class="featured-description">
+                            O edital contempla mais de 200 vagas em projetos de extensão nas áreas de tecnologia,
+                            saúde e educação, com inscrições abertas até o fim do mês.
+
+                        </p>
+
+                        <a href="#" class="read-more">
+                            Leia mais →
+                        </a>
+                    </div>
+                </article>
+
+                <div class="news-secondary-list">
+
+                    <article class="news-secondary-item">
+
+                        <div class="news-secondary-image">
+                            <img src="img/banner-campus-2.jpg" alt="">
+                        </div>
+
+                        <div class="news-secondary-body">
+                            <div class="news-secondary-meta">
+                                <span class="cat-badge cat-green" aria-hidden="true">
+                                    Carreira
+                                </span>
+                                <time class="news-date" datetime="2025-07-18">
+                                    <!-- ícone calendário mini -->
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                        <rect x="1" y="2" width="10" height="9" rx="2" stroke="currentColor"
+                                            stroke-width="1.3" />
+                                        <path d="M1 5h10" stroke="currentColor" stroke-width="1.3" />
+                                        <rect x="3.5" y="1" width="1.2" height="2" rx="0.6" fill="currentColor" />
+                                        <rect x="7.3" y="1" width="1.2" height="2" rx="0.6" fill="currentColor" />
+                                    </svg>
+                                    8 jul 2025
+                                </time>
+                            </div>
+
+                            <h4 class="news-secondary-title">Pesquisa aponta crescimento de 34% nas contratações de
+                                recém-formados em TI</h4>
+                            <a href="#" class="read-more">
+                                Leia mais →
+                            </a>
+                        </div>
+                    </article>
+
+
+                    <article class="news-secondary-item">
+
+                        <div class="news-secondary-image">
+                            <img src="img/banner-campus.webp" alt="">
+                        </div>
+
+                        <div class="news-secondary-body">
+                            <div class="news-secondary-meta">
+                                <span class="cat-badge cat-purple" aria-hidden="true">
+                                    Prêmios
+                                </span>
+                                <time class="news-date" datetime="2025-07-18">
+                                    <!-- ícone calendário mini -->
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                        <rect x="1" y="2" width="10" height="9" rx="2" stroke="currentColor"
+                                            stroke-width="1.3" />
+                                        <path d="M1 5h10" stroke="currentColor" stroke-width="1.3" />
+                                        <rect x="3.5" y="1" width="1.2" height="2" rx="0.6" fill="currentColor" />
+                                        <rect x="7.3" y="1" width="1.2" height="2" rx="0.6" fill="currentColor" />
+                                    </svg>
+                                    05 jul 2025
+                                </time>
+                            </div>
+
+                            <h4 class="news-secondary-title">Estudantes brasileiros vencem olimpíada internacional de
+                                robótica em Tóquio</h4>
+                            <a href="#" class="read-more">
+                                Leia mais →
+                            </a>
+                        </div>
+                    </article>
+                    <article class="news-secondary-item">
+
+                        <div class="news-secondary-image">
+                            <img src="img/banner-campus.webp" alt="">
+                        </div>
+
+                        <div class="news-secondary-body">
+                            <div class="news-secondary-meta">
+                                <span class="cat-badge cat-amber" aria-hidden="true">
+                                    Inovação
+                                </span>
+                                <time class="news-date" datetime="2025-07-18">
+                                    <!-- ícone calendário mini -->
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                        <rect x="1" y="2" width="10" height="9" rx="2" stroke="currentColor"
+                                            stroke-width="1.3" />
+                                        <path d="M1 5h10" stroke="currentColor" stroke-width="1.3" />
+                                        <rect x="3.5" y="1" width="1.2" height="2" rx="0.6" fill="currentColor" />
+                                        <rect x="7.3" y="1" width="1.2" height="2" rx="0.6" fill="currentColor" />
+                                    </svg>
+                                    05 jul 2025
+                                </time>
+                            </div>
+
+                            <h4 class="news-secondary-title">UNICAMP lança laboratório aberto de IA com acesso gratuito
+                                para alunos de graduação</h4>
+                            <a href="#" class="read-more">
+                                Leia mais →
+                            </a>
+                        </div>
+                    </article>
+                    <article class="news-secondary-item">
+
+                        <div class="news-secondary-image">
+                            <img src="img/banner-campus.webp" alt="">
+                        </div>
+
+                        <div class="news-secondary-body">
+                            <div class="news-secondary-meta">
+                                <span class="cat-badge cat-blue" aria-hidden="true">
+                                    Educação
+                                </span>
+                                <time class="news-date" datetime="2025-07-18">
+                                    <!-- ícone calendário mini -->
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                        <rect x="1" y="2" width="10" height="9" rx="2" stroke="currentColor"
+                                            stroke-width="1.3" />
+                                        <path d="M1 5h10" stroke="currentColor" stroke-width="1.3" />
+                                        <rect x="3.5" y="1" width="1.2" height="2" rx="0.6" fill="currentColor" />
+                                        <rect x="7.3" y="1" width="1.2" height="2" rx="0.6" fill="currentColor" />
+                                    </svg>
+                                    05 jul 2025
+                                </time>
+                            </div>
+
+                            <h4 class="news-secondary-title">Feira de estágios reúne mais de 40 empresas parceiras</h4>
+                            <a href="#" class="read-more">
+                                Leia mais →
+                            </a>
+                        </div>
+                    </article>
+                    <article class="news-secondary-item">
+
+                        <div class="news-secondary-image">
+                            <img src="img/banner-campus.webp" alt="">
+                        </div>
+
+                        <div class="news-secondary-body">
+                            <div class="news-secondary-meta">
+                                <span class="cat-badge cat-blue" aria-hidden="true">
+                                    Educação
+                                </span>
+                                <time class="news-date" datetime="2025-07-18">
+                                    <!-- ícone calendário mini -->
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                        <rect x="1" y="2" width="10" height="9" rx="2" stroke="currentColor"
+                                            stroke-width="1.3" />
+                                        <path d="M1 5h10" stroke="currentColor" stroke-width="1.3" />
+                                        <rect x="3.5" y="1" width="1.2" height="2" rx="0.6" fill="currentColor" />
+                                        <rect x="7.3" y="1" width="1.2" height="2" rx="0.6" fill="currentColor" />
+                                    </svg>
+                                    05 jul 2025
+                                </time>
+                            </div>
+
+                            <h4 class="news-secondary-title">Feira de estágios reúne mais de 40 empresas parceiras</h4>
+                            <a href="#" class="read-more">
+                                Leia mais →
+                            </a>
+                        </div>
+                    </article>
+                    <article class="news-secondary-item">
+
+                        <div class="news-secondary-image">
+                            <img src="img/banner-campus.webp" alt="">
+                        </div>
+
+                        <div class="news-secondary-body">
+                            <div class="news-secondary-meta">
+                                <span class="cat-badge cat-blue" aria-hidden="true">
+                                    Educação
+                                </span>
+                                <time class="news-date" datetime="2025-07-18">
+                                    <!-- ícone calendário mini -->
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                        <rect x="1" y="2" width="10" height="9" rx="2" stroke="currentColor"
+                                            stroke-width="1.3" />
+                                        <path d="M1 5h10" stroke="currentColor" stroke-width="1.3" />
+                                        <rect x="3.5" y="1" width="1.2" height="2" rx="0.6" fill="currentColor" />
+                                        <rect x="7.3" y="1" width="1.2" height="2" rx="0.6" fill="currentColor" />
+                                    </svg>
+                                    05 jul 2025
+                                </time>
+                            </div>
+
+                            <h4 class="news-secondary-title">Feira de estágios reúne mais de 40 empresas parceiras</h4>
+                            <a href="#" class="read-more">
+                                Leia mais →
+                            </a>
+                        </div>
+                    </article>
+
+
+                </div>
+            </div>
+        </section>
+
+        <section class="diagonal-section">
+            <div class="events-section">
+                <div>
+                    <p class="section-eyebrow">Eventos</p>
+                </div>
+                <div class="events-header">
+                    <div>
+                        <h2><span>Próximos eventos</span></h2>
+                        <p class="events-subtitle"> Confira o que está rolando na sua universidade esta semana.</p>
+                    </div>
+                    <a href="#" class="events-view-all">Ver todos os eventos →</a>
+                </div>
+
+                <div class="pill-group" role="list" aria-label="Categorias de eventos">
+                    <button class="course-pill active" role="listitem" data-categoria="todos"
+                        aria-label="Todas as categorias">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                            <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                            <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                            <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                        </svg>
+                        <span class="pill-label">Todos</span>
+                    </button>
+
+                    <button class="course-pill" role="listitem" data-categoria="pesquisa"
+                        aria-label="Filtrar por Pesquisa">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="7" />
+                            <path d="M21 21l-4.3-4.3" />
+                        </svg>
+                        <span class="pill-label">Pesquisa</span>
+                    </button>
+
+                    <button class="course-pill" role="listitem" data-categoria="tecnologia"
+                        aria-label="Filtrar por Tecnologia">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="4" y="4" width="16" height="16" rx="2" />
+                            <path d="M9 9h6v6H9z" />
+                            <path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3" />
+                        </svg>
+                        <span class="pill-label">Tecnologia</span>
+                    </button>
+
+                    <button class="course-pill" role="listitem" data-categoria="design" aria-label="Filtrar por Design">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 19l7-7 3 3-7 7-3-3z" />
+                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+                            <path d="M2 2l7.5 7.5" />
+                            <circle cx="11" cy="11" r="2" />
+                        </svg>
+                        <span class="pill-label">Design</span>
+                    </button>
+                </div>
+
+                <div class="events-content">
+                    <div class="events-grid" id="events-grid"> </div>
+                    <div class="events-empty" id="events-empty">
+                        <img src="img/no-result.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div>
+                <p class="section-eyebrow">Perguntas Frequentes</p>
+            </div>
+            <div class="faq-header">
+                <h2><span>Perguntas Frequentes</span></h2>
+                <p>Tire suas dúvidas sobre eventos, inscrições e certificados no Campus Connect.</p>
+            </div>
+
+            <div class="faq-list" id="faq-list">
+                <div class="faq-item active">
+                    <button class="faq-question-row">
+                        <span class="faq-number">01</span>
+                        <span class="faq-question-text">Como faço para me inscrever em um evento?</span>
+                        <span class="faq-toggle" aria-hidden="true">
+                            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                            <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">
+                            Basta acessar a página do evento desejado e clicar em "Inscreva-se" ou "Ver detalhes".
+                            Alunos com conta ativa na plataforma têm a inscrição confirmada instantaneamente.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question-row">
+                        <span class="faq-number">02</span>
+                        <span class="faq-question-text">Os eventos têm algum custo?</span>
+                        <span class="faq-toggle" aria-hidden="true">
+                            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                            <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">
+                            A grande maioria dos eventos listados é gratuita para estudantes da universidade.
+                            Eventos com custo indicam o valor claramente na página do evento.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question-row">
+                        <span class="faq-number">03</span>
+                        <span class="faq-question-text">Recebo certificado de participação?</span>
+                        <span class="faq-toggle" aria-hidden="true">
+                            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                            <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">
+                            Sim, eventos com carga horária mínima de 2h emitem certificado digital automaticamente
+                            após a confirmação de presença.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question-row">
+                        <span class="faq-number">04</span>
+                        <span class="faq-question-text">Posso cancelar minha inscrição?</span>
+                        <span class="faq-toggle" aria-hidden="true">
+                            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                            <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">
+                            Sim, você pode cancelar até 24 horas antes do início do evento diretamente pela sua área do
+                            estudante.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
     </main>
 
-    <script src="js/components/hero-section.js"></script>
-    <script src="js/components/featured-section.js"></script>
+
+    <footer class="site-footer">
+        <div class="footer-topbar">
+            <span class="footer-copyright">© 2026 Campus Connect. Todos os direitos reservados.</span>
+
+            <nav class="footer-legal-links" aria-label="Links legais">
+                <a href="#">Termos</a>
+                <a href="#">Privacidade</a>
+                <a href="#">Cookies</a>
+            </nav>
+
+            <div class="footer-social-icons">
+                <a href="#" aria-label="Instagram" class="footer-social-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="5" />
+                        <circle cx="12" cy="12" r="4" />
+                        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                    </svg>
+                </a>
+                <a href="#" aria-label="LinkedIn" class="footer-social-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="3" />
+                        <path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4" />
+                    </svg>
+                </a>
+                <a href="#" aria-label="YouTube" class="footer-social-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="6" width="20" height="12" rx="4" />
+                        <path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-main">
+            <div class="footer-newsletter">
+                <h3 class="footer-newsletter-title">Fique por dentro das novidades</h3>
+
+                <form class="footer-newsletter-form" id="footer-newsletter-form">
+                    <input type="email" id="footer-newsletter-email" class="footer-newsletter-input"
+                        placeholder="Seu e-mail" aria-label="E-mail para receber novidades" required>
+                    <button type="submit" class="footer-newsletter-submit" aria-label="Inscrever-se">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M7 17L17 7M7 7h10v10" />
+                        </svg>
+                    </button>
+                </form>
+
+                <p class="footer-newsletter-desc">
+                    Receba os próximos eventos, workshops e novidades da universidade direto no seu e-mail.
+                    Sem spam, cancele quando quiser.
+                </p>
+
+                <p class="footer-newsletter-feedback" id="footer-newsletter-feedback"></p>
+
+                <div class="footer-social-text-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">YouTube</a>
+                </div>
+            </div>
+
+            <nav class="footer-link-column" aria-label="Navegação">
+                <h4 class="footer-column-title">Navegação</h4>
+                <a href="index.html">Início</a>
+                <a href="pages/events.html">Eventos</a>
+                <a href="#">Sobre</a>
+                <a href="pages/profile.html">Perfil</a>
+            </nav>
+
+            <nav class="footer-link-column" aria-label="Institucional">
+                <h4 class="footer-column-title">Institucional</h4>
+                <a href="pages/contact.html">Contato</a>
+                <a href="#">FAQ</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">Privacidade</a>
+            </nav>
+
+            <nav class="footer-link-column" aria-label="Comunidade">
+                <h4 class="footer-column-title">Comunidade</h4>
+                <a href="#">Criar Conta</a>
+                <a href="#">Entrar</a>
+                <a href="#">Ajuda</a>
+                <a href="#">Contato</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/pages/home/components/hero-section.js"></script>
+    <script src="js/pages/home/components/featured-section.js"></script>
+    <script src="js/pages/home/components/news.js"></script>
+    <script src="./data/events-mock.js"></script>
+    <script src="js/pages/home/components/events-section.js"></script>
+    <script src="js/pages/home/components/faq-section.js"></script>
+    <script src="js/pages/home/components/footer-section.js"></script>
     <script src="js/index.js"></script>
 </body>
 
