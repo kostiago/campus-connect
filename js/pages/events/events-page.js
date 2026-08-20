@@ -33,7 +33,7 @@ const chevronRightSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentCol
 // Categorias que pertencem à página completa de eventos — usado para
 // "Todos os Eventos" não puxar itens da home (tecnologia, pesquisa, design)
 // que compartilham o mesmo mock.
-const pageCategorias = ["academico", "esportes", "cultural", "carreira", "social"];
+const pageCategorias = ["tecnologia","pesquisa", "design", "academico", "esportes", "cultural", "carreira", "social"];
 
 document.addEventListener("DOMContentLoaded", () => {
   const grid = document.getElementById("events-page-grid");
@@ -41,44 +41,73 @@ document.addEventListener("DOMContentLoaded", () => {
   const paginationNav = document.getElementById("pagination-nav");
   const resultsPerPageSelect = document.getElementById("results-per-page-select");
   const paginationSummary = document.getElementById("pagination-summary");
+  const searchInput = document.getElementById("event-search");
 
   if (!grid) return;
 
   // Estado da página atual (filtro + paginação)
   let currentCategoria = "todos";
+  let currentSearch = "";
   let currentPage = 1;
-  let resultsPerPage = Number(resultsPerPageSelect?.value) || 4;
+  let resultsPerPage = Number(resultsPerPageSelect?.value) || 6;
 
-  function getFilteredEvents() {
-    return currentCategoria === "todos"
-      ? mockEvents.filter((evento) => pageCategorias.includes(evento.categoria))
-      : mockEvents.filter((evento) => evento.categoria === currentCategoria);
+  function normalizar(text){
+    return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }
 
-  function renderCards(eventos) {
+  function getFilteredEvents() {
+  let eventos = currentCategoria === "todos"
+    ? mockEvents.filter((evento) => pageCategorias.includes(evento.categoria))
+    : mockEvents.filter((evento) => evento.categoria === currentCategoria);
+
+  if (currentSearch.trim() !== "") {
+    const word = normalizar(currentSearch.trim());
+    eventos = eventos.filter((evento) => {
+      const titulo = normalizar(evento.titulo || "");
+      const descricao = normalizar(evento.descricao || "");
+      return titulo.includes(word) || descricao.includes(word);
+    });
+  }
+
+  return eventos;
+}
+
+ function renderCards(eventos) {
     if (eventos.length === 0) {
       grid.innerHTML = `<div class="events-page-empty">Nenhum evento encontrado nessa categoria.</div>`;
       return;
     }
 
-    grid.innerHTML = eventos.map((evento) => `
-      <article class="event-page-card">
-        <div class="event-page-image">
-          <img src="${evento.imagem}" alt="${evento.titulo}">
-          <span class="event-page-badge badge-${evento.categoria}">${evento.categoriaLabel}</span>
-        </div>
-        <div class="event-page-body">
-          <h3 class="event-page-title">${evento.titulo}</h3>
-          <p class="event-page-desc">${evento.descricao}</p>
-          <div class="event-page-meta">
-            <div class="event-page-meta-row">${calendarIconSvgPage} ${evento.data}</div>
-            <div class="event-page-meta-row">${clockIconSvgPage} ${evento.hora}</div>
-            <div class="event-page-meta-row">${pinIconSvgPage} ${evento.local}</div>
+    grid.innerHTML = eventos.map((evento) => {
+      const percentual = Math.round((evento.inscritos / evento.vagasTotal) * 100);
+      const precoLabel = evento.preco > 0 ? `$${evento.preco}` : "Gratuito";
+
+      return `
+      <a href="event-details.html?id=${evento.id}" class="event-page-card-link">
+        <article class="event-page-card">
+          <div class="event-page-image">
+            <img src="${evento.imagem}" alt="${evento.titulo}">
+            <div class="event-page-badge-row">
+              <span class="event-page-badge badge-${evento.categoria}">${evento.categoriaLabel}</span>
+              <span class="event-page-status">Ativo</span>
+            </div>
           </div>
-          <button class="btn-register">Inscrever-se</button>
-        </div>
-      </article>
-    `).join("");
+          <div class="event-page-body">
+            <div class="event-page-datetime">${evento.data} — ${evento.hora}</div>
+            <h3 class="event-page-title">${evento.titulo}</h3>
+            <div class="event-page-location">${pinIconSvgPage} <span>${evento.local}</span></div>
+            <div class="event-page-progress-row">
+              <div class="event-page-progress-track">
+                <div class="event-page-progress-fill" style="width:${percentual}%"></div>
+              </div>
+              <span class="event-page-progress-pct">${percentual}%</span>
+              <span class="event-page-price">${precoLabel}</span>
+            </div>
+          </div>
+        </article>
+      </a>
+    `;
+    }).join("");
   }
 
   // Gera a lista de números de página com reticências, no formato:
@@ -211,6 +240,18 @@ document.addEventListener("DOMContentLoaded", () => {
       resultsPerPage = Number(resultsPerPageSelect.value);
       currentPage = 1;
       renderPage();
+    });
+  }
+
+  if (searchInput) {
+    let debounceTimer;
+    searchInput.addEventListener("input", () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        currentSearch = searchInput.value;
+        currentPage = 1; // volta pra primeira página ao buscar
+        renderPage();
+      }, 250);
     });
   }
 

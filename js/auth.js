@@ -19,6 +19,13 @@
 const CampusAuth = {
   STORAGE_KEY: "campusConnectSession",
 
+  DASHBOARD_FILE_BY_ROLE: {
+    aluno: "dashboard-aluno.html",
+    organizador: "dashboard-organizador.html",
+    administrador: "dashboard-administrador.html"
+  },
+
+  
   // Retorna o usuário "logado" atualmente, ou null se for visitante.
   // Formato: { role: "aluno" | "organizador" | "administrador", nome: "..." }
   getCurrentUser() {

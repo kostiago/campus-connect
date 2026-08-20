@@ -264,6 +264,50 @@
 }
 
 
+/* ---------- Eyebrow (label com cantos) ---------- */
+.section-eyebrow {
+  position: relative;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin: 0 0 14px;
+  padding: 3px 14px;
+}
+
+.section-eyebrow::before,
+.section-eyebrow::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid var(--color-primary);
+}
+
+.section-eyebrow::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.section-eyebrow::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+.section-eyebrow.center {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 
 /*---Hero---*/
 

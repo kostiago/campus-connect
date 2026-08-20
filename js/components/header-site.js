@@ -46,6 +46,13 @@ class SiteHeader extends HTMLElement {
       adminSettings: `${base}pages/admin-settings.html`
     };
 
+    // Rota do painel — depende do papel do usuário logado, por isso
+    // é calculada à parte (usa o mapeamento centralizado em auth.js).
+    const dashboardFile = user && window.CampusAuth
+      ? window.CampusAuth.DASHBOARD_FILE_BY_ROLE[user.role]
+      : null;
+    const dashboardRoute = dashboardFile ? `${base}pages/${dashboardFile}` : "#";
+
     // ---------- Nav principal — muda conforme o papel logado ----------
     // Visitante vê a nav pública padrão. Usuários logados veem os itens
     // mais usados do próprio papel direto na barra, em vez das rotas
@@ -59,17 +66,20 @@ class SiteHeader extends HTMLElement {
 
     const mainNavByRole = {
       aluno: [
+        { label: "Meu Painel", href: dashboardRoute, key: "painel" },
         { label: "Eventos", href: routes.events, key: "eventos" },
         { label: "Minhas Inscrições", href: routes.myRegistrations, key: "inscricoes" },
         { label: "Favoritos", href: routes.favorites, key: "favoritos" },
         { label: "Certificados", href: routes.certificates, key: "certificados" }
       ],
       organizador: [
+        { label: "Meu Painel", href: dashboardRoute, key: "painel" },
         { label: "Eventos", href: routes.events, key: "eventos" },
         { label: "Meus Eventos", href: routes.myEvents, key: "meus-eventos" },
         { label: "Criar Evento", href: routes.createEvent, key: "criar-evento" }
       ],
       administrador: [
+        { label: "Meu Painel", href: dashboardRoute, key: "painel" },
         { label: "Administração", href: routes.admin, key: "admin" },
         { label: "Criar Evento", href: routes.createEvent, key: "criar-evento" },
         { label: "Meus Eventos", href: routes.myEvents, key: "meus-eventos" },
@@ -90,7 +100,7 @@ class SiteHeader extends HTMLElement {
       </li>
     `).join("");
 
-    this.innerHTML = `
+    this.innerHTML = `  
       <header class="site-header">
         <div class="logo">
           <span class="logo-icon" aria-hidden="true">🎓</span>
@@ -107,14 +117,14 @@ class SiteHeader extends HTMLElement {
               <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.2" />
               <path d="M20 20L17 17" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
             </svg>
-            <input type="search" id="event-search" class="search-input"
+            <input type="search" id="search" class="search-input"
               placeholder="Buscar eventos, workshops, palestras..." aria-label="Buscar eventos">
           </div>
 
           ${user
-            ? this.renderUserMenu(routes, currentPage, user, navItems)
-            : this.renderGuestButtons(routes)
-          }
+        ? this.renderUserMenu(routes, currentPage, user, navItems)
+        : this.renderGuestButtons(routes)
+      }
         </div>
       </header>
     `;
@@ -150,6 +160,32 @@ class SiteHeader extends HTMLElement {
 
   // ---------- Rotas privadas, acumuladas por papel ----------
   getPrivateRoutesForRole(routes, role) {
+    const icon = {
+      perfil: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>`,
+      inscricoes: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M9 15l2 2 4-4"/></svg>`,
+      favoritos: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>`,
+      certificados: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 22l5-3 5 3-1.5-9.5"/></svg>`,
+      "meus-eventos": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>`,
+      "criar-evento": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>`,
+      admin: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg>`,
+      "admin-usuarios": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="3"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><circle cx="18" cy="8" r="2.5"/></svg>`,
+      "admin-relatorios": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>`,
+      "admin-config": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9c.2.6.7 1 1.6 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.6 1z"/></svg>`
+    };
+
+    const desc = {
+      perfil: "Seus dados pessoais e preferências",
+      inscricoes: "Eventos em que você já está inscrito",
+      favoritos: "Eventos que você salvou para depois",
+      certificados: "Certificados emitidos automaticamente",
+      "meus-eventos": "Eventos que você organiza",
+      "criar-evento": "Publique um novo evento no calendário",
+      admin: "Visão geral da plataforma",
+      "admin-usuarios": "Gerencie contas e permissões",
+      "admin-relatorios": "Métricas e dados de participação",
+      "admin-config": "Ajustes gerais do sistema"
+    };
+
     const routesByRole = {
       aluno: [
         { label: "Perfil", href: routes.profile, key: "perfil" },
@@ -174,7 +210,16 @@ class SiteHeader extends HTMLElement {
 
     return ROLE_HIERARCHY
       .slice(0, roleIndex + 1)
-      .flatMap((r) => routesByRole[r]);
+      .flatMap((r) => routesByRole[r])
+      .map((item) => ({ ...item, icon: icon[item.key] || "", desc: desc[item.key] || "" }))
+  }
+
+  getFeaturedPreviewEvents() {
+    return [
+      { rank: "01", categoria: "Tecnologia", titulo: "Hackathon UFMG 2025", data: "23 jul", local: "Bloco de Engenharia" },
+      { rank: "02", categoria: "Pesquisa", titulo: "Semana de Iniciação Científica", data: "28 jul", local: "Auditório Central" },
+      { rank: "03", categoria: "Design", titulo: "Workshop de Design Thinking", data: "02 ago", local: "Laboratório de Inovação" }
+    ];
   }
 
   // ---------- Usuário logado: avatar + dropdown ----------
@@ -196,65 +241,113 @@ class SiteHeader extends HTMLElement {
 
     const menuItemsHtml = privateRoutes.map((item) => `
       <a href="${item.href}" class="user-menu-item" ${item.key === currentPage ? 'aria-current="page"' : ""}>
-        ${item.label}
+        <span class="user-menu-item-icon" aria-hidden="true">${item.icon}</span>
+        <span class="user-menu-item-text">
+          <span class="user-menu-item-label">${item.label}</span>
+          <span class="user-menu-item-desc">${item.desc}</span>
+        </span>
       </a>
+    `).join("");
+
+    const featuredEvents = this.getFeaturedPreviewEvents();
+
+    const slidesHtml = featuredEvents.map((evento, index) => `
+      <div class="mega-slide ${index === 0 ? "active" : ""}" data-slide-index="${index}">
+        <div class="mega-slide-visual">
+          <span class="mega-slide-rank">${evento.rank}</span>
+          <span class="mega-slide-category">${evento.categoria}</span>
+        </div>
+        <h4 class="mega-slide-title">${evento.titulo}</h4>
+        <p class="mega-slide-meta">${evento.data} · ${evento.local}</p>
+      </div>
+    `).join("");
+
+    const dotsHtml = featuredEvents.map((_, index) => `
+      <button class="mega-slider-dot ${index === 0 ? "active" : ""}" data-dot-index="${index}" aria-label="Ver destaque ${index + 1}"></button>
     `).join("");
 
     return `
       <div class="user-menu-wrapper">
-        <button class="user-menu-trigger" id="user-menu-trigger" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary user-menu-trigger" id="user-menu-trigger" aria-haspopup="true">
           <span class="user-avatar" aria-hidden="true">${initials}</span>
           <span class="user-menu-name">${user.nome}</span>
           <svg class="user-menu-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M6 9l6 6 6-6"/>
           </svg>
         </button>
-
-        <div class="user-menu-dropdown" id="user-menu-dropdown" role="menu">
-          <div class="user-menu-header">
-            <span class="user-menu-role-badge">${roleLabels[user.role] || user.role}</span>
+ 
+        <div class="user-menu-mega" id="user-menu-mega">
+          <div class="user-menu-mega-inner">
+            <div class="user-menu-mega-left">
+              <span class="user-menu-role-badge">${roleLabels[user.role] || user.role}</span>
+ 
+              <div class="user-menu-items">
+                ${menuItemsHtml}
+              </div>
+ 
+              <button class="user-menu-item user-menu-logout" id="user-menu-logout">
+                Sair
+              </button>
+            </div>
+ 
+            <div class="user-menu-mega-right">
+              <p class="mega-right-eyebrow">Em destaque</p>
+              <div class="mega-slider" id="mega-slider">
+                ${slidesHtml}
+              </div>
+              <div class="mega-slider-dots" id="mega-slider-dots">
+                ${dotsHtml}
+              </div>
+              <a href="${routes.events}" class="mega-right-link">Ver todos os eventos →</a>
+            </div>
           </div>
-
-          ${menuItemsHtml}
-
-          <button class="user-menu-item user-menu-logout" id="user-menu-logout">
-            Sair
-          </button>
         </div>
       </div>
     `;
   }
 
+  // Abrir/fechar o mega menu agora é feito só em CSS (:hover / :focus-within
+  // em .user-menu-wrapper) — aqui só cuidamos do slider e do logout.
   setupUserMenuToggle() {
-    const trigger = this.querySelector("#user-menu-trigger");
-    const dropdown = this.querySelector("#user-menu-dropdown");
     const logoutBtn = this.querySelector("#user-menu-logout");
-
-    if (!trigger || !dropdown) return;
-
-    function closeMenu() {
-      dropdown.classList.remove("open");
-      trigger.setAttribute("aria-expanded", "false");
-    }
-
-    trigger.addEventListener("click", (event) => {
-      event.stopPropagation();
-      const isOpen = dropdown.classList.toggle("open");
-      trigger.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    document.addEventListener("click", (event) => {
-      if (!this.contains(event.target)) closeMenu();
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") closeMenu();
-    });
+    const slider = this.querySelector("#mega-slider");
+    const dots = this.querySelectorAll(".mega-slider-dot");
+    const slides = this.querySelectorAll(".mega-slide");
 
     if (logoutBtn) {
       logoutBtn.addEventListener("click", () => {
         if (window.CampusAuth) window.CampusAuth.logout();
         window.location.reload();
+      });
+    }
+
+    if (!slider || slides.length === 0) return;
+
+    let activeIndex = 0;
+
+    function goToSlide(index) {
+      activeIndex = index;
+      slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+    }
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => goToSlide(Number(dot.dataset.dotIndex)));
+    });
+
+    // Avança automaticamente a cada 4s enquanto o menu estiver aberto
+    let autoplay = setInterval(() => {
+      goToSlide((activeIndex + 1) % slides.length);
+    }, 4000);
+
+    const wrapper = this.querySelector(".user-menu-wrapper");
+    if (wrapper) {
+      wrapper.addEventListener("mouseleave", () => clearInterval(autoplay));
+      wrapper.addEventListener("mouseenter", () => {
+        clearInterval(autoplay);
+        autoplay = setInterval(() => {
+          goToSlide((activeIndex + 1) % slides.length);
+        }, 4000);
       });
     }
   }

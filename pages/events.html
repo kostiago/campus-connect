@@ -40,7 +40,7 @@
 
                 </svg>
 
-                <input type="search" id="event-search" class="search-input"
+                <input type="search" id="search" class="search-input"
                     placeholder="Buscar eventos, workshops, palestras..." aria-label="Buscar eventos">
             </div>
 
@@ -78,16 +78,55 @@
         </div>
 
         <div class="events-tabs-bar" id="events-tabs-bar">
-            <button class="events-tab active" data-categoria="todos">Todos os Eventos</button>
-            <button class="events-tab" data-categoria="academico">Acadêmico</button>
-            <button class="events-tab" data-categoria="esportes">Esportes</button>
-            <button class="events-tab" data-categoria="cultural">Cultural</button>
-            <button class="events-tab" data-categoria="carreira">Carreira</button>
-            <button class="events-tab" data-categoria="social">Social</button>
+
+            <div class="events-tabs-list">
+                <button class="events-tab active" data-categoria="todos">Todos os Eventos</button>
+                <button class="events-tab" data-categoria="academico">Acadêmico</button>
+                <button class="events-tab" data-categoria="tecnologia">Tecnologia</button>
+                <button class="events-tab" data-categoria="esportes">Esportes</button>
+                <button class="events-tab" data-categoria="cultural">Cultural</button>
+                <button class="events-tab" data-categoria="carreira">Carreira</button>
+                <button class="events-tab" data-categoria="pesquisa">Pesquisa</button>
+                <button class="events-tab" data-categoria="design">Design</button>
+            </div>
+
+            <div class="search-wrapper">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                    <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.2" />
+                    <path
+                        d="M11 8C10.606 8 10.2159 8.0776 9.85195 8.22836C9.48797 8.37913 9.15726 8.6001 8.87868 8.87868C8.6001 9.15726 8.37913 9.48797 8.22836 9.85195C8.0776 10.2159 8 10.606 8 11"
+                        stroke="currentColor" opacity=".35" stroke-width="1.2" stroke-linecap="round" />
+                    <path d="M20 20L17 17" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                </svg>
+                <input type="search" id="event-search" class="search-input"
+                    placeholder="Buscar eventos, workshops, palestras..." aria-label="Buscar eventos">
+            </div>
         </div>
 
         <div class="events-page-body">
             <aside class="events-sidebar">
+                <div class="sidebar-filter-block sidebar-calendar-block">
+                    <div class="calendar-header">
+                        <button class="calendar-nav-btn" id="calendar-prev" aria-label="Mês anterior">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+                        <span class="calendar-month-label" id="calendar-month-label"></span>
+                        <button class="calendar-nav-btn" id="calendar-next" aria-label="Próximo mês">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M9 6l6 6-6 6" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="calendar-weekdays">
+                        <span>Do</span><span>Se</span><span>Te</span><span>Qa</span><span>Qi</span><span>Se</span><span>Sa</span>
+                    </div>
+
+                    <div class="calendar-days" id="calendar-days"></div>
+                </div>
+
                 <div class="sidebar-filter-block">
                     <h3 class="sidebar-filter-title">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -132,6 +171,21 @@
                     </select>
                 </div>
 
+                <div class="sidebar-filter-block">
+                    <h3 class="sidebar-filter-title">Faixa de Preço</h3>
+                    <div class="price-range">
+                        <div class="price-range-track">
+                            <div class="price-range-fill" id="price-range-fill"></div>
+                        </div>
+                        <input type="range" id="price-min" class="price-range-input" min="0" max="120" value="0" step="5">
+                        <input type="range" id="price-max" class="price-range-input" min="0" max="120" value="120" step="5">
+                    </div>
+                    <div class="price-range-labels">
+                        <span id="price-min-label">$0</span>
+                        <span id="price-max-label">$120</span>
+                    </div>
+                </div>
+
                 <p class="sidebar-note">Filtros de período, local e ano ainda não filtram os eventos — em breve.</p>
             </aside>
 
@@ -149,8 +203,8 @@
             <div class="results-per-page">
                 <span>Resultados por página</span>
                 <select id="results-per-page-select">
-                    <option value="4">4</option>
-                    <option value="8">8</option>
+                    <option value="6">6</option>
+                    <option value="9">9</option>
                     <option value="12">12</option>
                 </select>
             </div>
@@ -158,6 +212,8 @@
     </main>
     <script src="../data/events-mock.js"></script>
     <script src="../js/pages/events/events-page.js"></script>
+    <script src="../js/pages/events/components/sidebar-calendar.js"></script>
+    <script src="../js/pages/events/components/price-range.js"></script>
 </body>
 
 </html>

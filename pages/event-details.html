@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header-user-menu.css">
+    <link rel="stylesheet" href="../css/components/button.css">
+    <link rel="stylesheet" href="../css/event-details.css">
+</head>
+
+<body>
+
+    <site-header current="eventos"></site-header>
+    <!-- Coloque aqui o mesmo header/nav usado nas outras páginas -->
+
+    <main class="event-details-page">
+        <div class="details-breadcrumb">
+            <a href="events.html">Eventos</a>
+            <span>/</span>
+            <span class="current">Detalhes do Evento</span>
+        </div>
+
+        <a href="events.html" class="details-back-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+            <span id="details-page-title">Detalhes do Evento</span>
+        </a>
+
+        <div class="details-layout">
+            <div class="details-main">
+
+                <div class="details-hero" id="details-hero">
+                    <img id="details-hero-img" src="" alt="">
+                    <span class="details-hero-badge" id="details-hero-category"></span>
+                    <span class="details-hero-status">
+                        <span class="status-dot"></span> Ativo
+                    </span>
+                </div>
+
+                <div class="ticket-card">
+
+                    <div class="ticket-panel ticket-panel-left">
+                        <h1 id="details-title"></h1>
+
+                        <div class="ticket-row">
+                            <div class="ticket-col">
+                                <span class="ticket-label">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" />
+                                    </svg>
+                                    Data e Horário
+                                </span>
+                                <span class="ticket-value" id="details-date"></span>
+                            </div>
+                            <div class="ticket-time" id="details-time-range"></div>
+                        </div>
+
+                        <div class="ticket-col">
+                            <span class="ticket-label">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" />
+                                </svg>
+                                Local
+                            </span>
+                            <span class="ticket-value ticket-address" id="details-local"></span>
+                        </div>
+
+                        <div class="ticket-share">
+                            <span class="ticket-share-label">Compartilhar com Amigos</span>
+                            <div class="ticket-share-icons">
+                                <button class="ticket-share-btn" data-share="facebook" aria-label="Compartilhar no Facebook">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.87.24-1.46 1.5-1.46H16.5V4.3C16.2 4.26 15.2 4.17 14 4.17c-2.4 0-4 1.47-4 4.17v2.33H7.5v3H10V21z" /></svg>
+                                </button>
+                                <button class="ticket-share-btn" data-share="twitter" aria-label="Compartilhar no Twitter">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.9c-.7.3-1.5.6-2.3.7.8-.5 1.5-1.3 1.8-2.2-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.6 11.6 0 0 1 3.4 4.6a4.1 4.1 0 0 0 1.3 5.5c-.6 0-1.3-.2-1.8-.5v.1c0 2 1.4 3.6 3.3 4a4.1 4.1 0 0 1-1.8.1c.5 1.6 2 2.8 3.8 2.9A8.3 8.3 0 0 1 2 18.6a11.6 11.6 0 0 0 6.3 1.8c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1z" /></svg>
+                                </button>
+                                <button class="ticket-share-btn" data-share="email" aria-label="Compartilhar por email">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></svg>
+                                </button>
+                                <button class="ticket-share-btn" data-share="copy" aria-label="Copiar link">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2" /><path d="M5 15V5a2 2 0 0 1 2-2h10" /></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ticket-divider">
+                        <span class="ticket-notch ticket-notch-top"></span>
+                        <span class="ticket-notch ticket-notch-bottom"></span>
+                    </div>
+
+                    <div class="ticket-panel ticket-panel-right">
+                        <h2>Inscreva-se</h2>
+
+                        <div class="ticket-summary-row"> 
+                            <div class="ticket-summary-item">
+                                <span class="details-price-label">A partir de</span>
+                                <span class="details-price" id="details-price"></span>
+                            </div>
+                            <div class="ticket-summary-item ticket-summary-vagas">
+                                <div class="details-vagas-top">
+                                    <span class="details-vagas-label">Vagas</span>
+                                    <span class="details-vagas-value" id="details-vagas"></span>
+                                </div>
+                                <div class="details-vagas-track">
+                                    <div class="details-vagas-fill" id="details-vagas-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ticket-calendar-row">
+                            <span>Clique para adicionar ao seu calendário</span>
+                            <button class="ticket-calendar-btn" id="details-add-calendar-btn">Adicionar ao Calendário</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="details-block">
+                    <h2>Sobre o Evento</h2>
+                    <p id="details-description"></p>
+                </div>
+
+                <div class="details-block details-tabs-card" id="details-tabs-block" style="display:none;">
+                    <div class="details-tabs-nav" id="details-tabs-nav">
+                        <button class="details-tab active" data-tab="timeline">Timeline</button>
+                        <button class="details-tab" data-tab="patrocinadores">Patrocinadores</button>
+                        <button class="details-tab" data-tab="palestrante">Palestrante</button>
+                        <button class="details-tab" data-tab="adicionais">Detalhes Adicionais</button>
+                    </div>
+
+                    <div class="details-tab-panel active" data-panel="timeline" id="panel-timeline"></div>
+                    <div class="details-tab-panel" data-panel="patrocinadores" id="panel-patrocinadores"></div>
+                    <div class="details-tab-panel" data-panel="palestrante" id="panel-palestrante"></div>
+                    <div class="details-tab-panel" data-panel="adicionais" id="panel-adicionais"></div>
+                </div>
+
+                <div class="details-block" id="details-terms-block" style="display:none;">
+                    <h2>Termos e Condições</h2>
+                    <div id="details-terms-content"></div>
+                </div>
+
+            </div>
+
+            <aside class="details-sidebar">
+                <div class="seatplan-card" id="seatplan-card" style="display:none;">
+                    <h3>Mapa de Assentos</h3>
+                    <div class="seatplan-visual" id="seatplan-visual"></div>
+                    <div class="seatplan-legend" id="seatplan-legend"></div>
+                </div>
+
+                <div class="lotes-card" id="lotes-card" style="display:none;">
+                    <div class="lotes-card-header">
+                        <h3>Lotes de Ingresso</h3>
+                        <button class="lotes-card-menu" aria-label="Mais opções">⋯</button>
+                    </div>
+                    <div class="lotes-list" id="lotes-list"></div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Coloque aqui o mesmo footer usado nas outras páginas, se existir -->
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/components/header-site.js"></script>
+    <script src="../data/events-mock.js"></script>
+    <script src="../js/pages/events/components/event-details.js"></script>
+    
+
+</body>
+
+</html>

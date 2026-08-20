@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Dashboard — Campus Connect</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/header-user-menu.css">
+  <link rel="stylesheet" href="../css/dashboard-aluno.css">
+  <link rel="stylesheet" href="../css/components/button.css">
+</head>
+<body>
+
+  <site-header current="painel"></site-header>
+
+  <main class="dashboard-page">
+    <div class="dashboard-header">
+      <h1>Olá, <span id="dashboard-user-name">Maria</span> 👋</h1>
+      <p>Aqui está um resumo da sua jornada no Campus Connect.</p>
+    </div>
+
+    <div class="dashboard-grid">
+
+      <!-- Progresso por categoria (anéis concêntricos) -->
+      <div class="dash-card area-progress">
+        <div class="dash-card-header">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+            Meu Progresso
+          </h3>
+          <span class="dash-period-badge">Este semestre</span>
+        </div>
+
+        <div class="progress-rings-wrapper">
+          <svg viewBox="0 0 120 120" class="progress-rings" id="progress-rings">
+            <!-- anéis desenhados via JS -->
+          </svg>
+        </div>
+
+        <ul class="progress-legend" id="progress-legend"></ul>
+      </div>
+
+      <!-- Próximo evento em destaque -->
+      <div class="dash-card area-highlight" id="highlight-card"></div>
+
+      <!-- Certificados -->
+      <div class="dash-card area-certs">
+        <div class="dash-card-header">
+          <h3>Certificados</h3>
+        </div>
+        <p class="certs-count" id="certs-count"></p>
+        <div class="certs-bar" id="certs-bar"></div>
+        <p class="certs-caption" id="certs-caption"></p>
+      </div>
+
+      <!-- Perfil -->
+      <div class="dash-card area-profile" id="profile-card"></div>
+
+      <!-- Minhas inscrições -->
+      <div class="dash-card area-inscricoes">
+        <div class="dash-card-header">
+          <h3>Minhas Inscrições</h3>
+          <a href="my-registrations.html" class="dash-card-link">Ver todas →</a>
+        </div>
+        <ul class="inscricoes-list" id="inscricoes-list"></ul>
+      </div>
+
+      <!-- Recomendado para você -->
+      <div class="dash-card area-recommend" id="recommend-card"></div>
+
+      <!-- Atividade recente -->
+      <div class="dash-card area-activity">
+        <div class="dash-card-header">
+          <h3>Atividade Recente</h3>
+        </div>
+        <ul class="activity-timeline" id="activity-timeline"></ul>
+      </div>
+
+    </div>
+  </main>
+
+  <site-footer></site-footer>
+
+  <script src="../js/auth.js"></script>
+  <script src="../js/components/header-site.js"></script>
+  <script src="../js/components/site-footer.js"></script>
+  <script src="../data/dashboard-aluno-mock.js"></script>
+  <script src="../js/pages/dashboard/dashboard-aluno.js"></script>
+</body>
+</html>

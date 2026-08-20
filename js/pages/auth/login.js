@@ -77,8 +77,13 @@ document.addEventListener("DOMContentLoaded", () => {
     feedback.textContent = "Login realizado! Redirecionando...";
     feedback.className = "login-feedback success";
 
+    // login.html e dashboard-*.html são irmãos dentro de pages/,
+    // então o nome do arquivo já basta, sem prefixo de caminho.
+    const destino = (window.CampusAuth && window.CampusAuth.DASHBOARD_FILE_BY_ROLE[papel])
+      || "../index.html"; // fallback, caso o papel não tenha dashboard mapeada
+
     setTimeout(() => {
-      window.location.href = "../index.html";
+      window.location.href = destino;
     }, 800);
   });
 });
